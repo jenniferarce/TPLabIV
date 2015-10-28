@@ -13,10 +13,10 @@
 	
 	<!--<link rel="stylesheet" type="text/css" href="css/inicio.css">-->
     <!-- Bootstrap Core CSS -->
-    <link href="bootstrap-css/css/bootstrap.min.css" rel="stylesheet">
+    <link href="components/bootstrap-css/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="bootstrap-css/css/business-frontpage.css" rel="stylesheet">
+    <link href="components/bootstrap-css/css/business-frontpage.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -24,6 +24,17 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <!-- media queries css -->
+    <script src="components/jquery/dist/jquery.min.js"></script>
+
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js"></script> <!--para google maps-->
+
+    <script type="text/javascript" src="js/funciones.js"></script>
+    <!--<script type="text/javascript" src="js/funcionesABM.js"></script>
+    <script type="text/javascript" src="js/funcionesMapa.js"></script>
+    <script type="text/javascript" src="js/geolocalizacionCommon.js"></script>
+    <script type="text/javascript" src="js/moduloGeolocalizacion.js"></script>-->
 
 </head>
 
@@ -40,13 +51,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Ingresar</a>
+                <a class="navbar-brand" onclick="mostrarlogin()" href="">Ingresar</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">Ingresar invitados</a>
+                        <a href="" onclick="">Ingresar invitados</a>
                     </li>
                     <li>
                         <a href="#">Grilla</a>
@@ -88,24 +99,22 @@
                 </p>
             </div>
             <div class="col-sm-4">
-                <h2>Contact Us</h2>
+                <h2>Contacto</h2>
                 <address>
-                    <strong>Start Bootstrap</strong>
-                    <br>3481 Melrose Place
-                    <br>Beverly Hills, CA 90210
+                    <strong>Wedding</strong>
+                    <br>Av. Bartolome Mitre 750
+                    <br>Avellaneda, Bs As 1870
                     <br>
                 </address>
                 <address>
-                    <abbr title="Phone">P:</abbr>(123) 456-7890
-                    <br>
-                    <abbr title="Email">E:</abbr> <a href="mailto:#">name@example.com</a>
+                    <abbr title="Email">E:</abbr> <a href="mailto:#">contacto@arcejennifer.tuars.com</a>
                 </address>
             </div>
         </div>
         <!-- /.row -->
 
         <hr>
-
+<!--
         <div class="row">
             <div class="col-sm-4">
                 <img class="img-circle img-responsive img-center" src="http://placehold.it/300x300" alt="">
@@ -122,10 +131,10 @@
                 <h2>Marketing Box #3</h2>
                 <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
             </div>
-        </div>
+        </div>-->
         <!-- /.row -->
 
-        <hr>
+        <hr> 
 
         <!-- Footer -->
         <footer>

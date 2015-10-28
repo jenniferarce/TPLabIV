@@ -1,5 +1,5 @@
 <?php
-class user
+class cliente
 {
 	public $id;
 	public $usuario;
@@ -8,10 +8,10 @@ class user
 	public $telefono;
 	public $email;
 
-	 public function InsertarUsuario()
+	 public function InsertarCliente()
 	 {
 				$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-				$consulta =$objetoAccesoDato->RetornarConsulta("CALL InsertarUsuario(:usuario,:clave,:nombre,:telefono,:email)");
+				$consulta =$objetoAccesoDato->RetornarConsulta("CALL InsertarCliente(:usuario,:clave,:nombre,:telefono,:email)");
 				$consulta->bindvalue(':usuario',$this->usuario,PDO::PARAM_STR);
 				$consulta->bindValue(':clave',$this->clave, PDO::PARAM_STR);
 				$consulta->bindValue(':nombre',$this->nombre, PDO::PARAM_STR);
@@ -21,18 +21,18 @@ class user
 				$consulta->execute();		
 				return $objetoAccesoDato->RetornarUltimoIdInsertado();
 	 }
-	public function BorrarUsuario()
+	public function BorrarCliente()
 	 {
 	 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("CALL BorrarUsuario(:id)");	
+			$consulta =$objetoAccesoDato->RetornarConsulta("CALL BorrarCliente(:id)");	
 				$consulta->bindValue(':id',$this->id, PDO::PARAM_INT);		
 				$consulta->execute();
 				return $consulta->rowCount();
 	 } 
-	 public function ModificarUsuario()
+	 public function ModificarCliente()
 	 {
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("CALL ModificarUsuario(:usuario,:clave,:nombre,:telefono,:email,,:id)");
+			$consulta =$objetoAccesoDato->RetornarConsulta("CALL ModificarCliente(:usuario,:clave,:nombre,:telefono,:email,,:id)");
 			$consulta->bindvalue(':usuario',$this->usuario,PDO::PARAM_STR);
 			$consulta->bindValue(':clave',$this->clave, PDO::PARAM_STR);
 			$consulta->bindValue(':nombre',$this->nombre, PDO::PARAM_STR);
@@ -43,44 +43,44 @@ class user
 			return $objetoAccesoDato->RetornarUltimoIdInsertado();
 	 }
 
-	public function GuardarUsuario()
+	public function GuardarCliente()
 	 {
 
 	 	if($this->id>0)
 	 		{
-	 			$this->ModificarUsuario();
+	 			$this->ModificarCliente();
 	 		}else {
-	 			$this->InsertarUsuario();
+	 			$this->InsertarCliente();
 	 		}
 
 	 }
 	
-	public static function TraerUsuarios()
+	public static function TraerClientes()
 	{
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("CALL TraerUsuarios()");
+			$consulta =$objetoAccesoDato->RetornarConsulta("CALL TraerClientes()");
 			$consulta->execute();			
-			return $consulta->fetchAll(PDO::FETCH_CLASS, "user");		
+			return $consulta->fetchAll(PDO::FETCH_CLASS, "cliente");		
 	}
 
-	public static function TraerUsuarioId($id) 
+	public static function TraerClienteId($id) 
 	{
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("CALL TraerUsuarioId(:id)");
+			$consulta =$objetoAccesoDato->RetornarConsulta("CALL TraerClienteId(:id)");
 			$consulta->bindvalue(':id',$id,PDO::PARAM_INT);
 			$consulta->execute();
-			$buscado= $consulta->fetchObject('user');
+			$buscado= $consulta->fetchObject('cliente');
 			return $buscado;			
 
 	}
-	public function validarUsuario($usuario,$clave)
+	public function validarCliente($usuario,$clave)
 	{
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-		$consulta=$objetoAccesoDato->RetornarConsulta("CALL validarusuario(:usuario,:clave)");
+		$consulta=$objetoAccesoDato->RetornarConsulta("CALL validarCliente(:usuario,:clave)");
 		$consulta->bindvalue(':usuario',$this->usuario,PDO::PARAM_STR);
 		$consulta->bindvalue(':clave',$this->clave,PDO::PARAM_STR);
 		$consulta->execute();
-		$buscado=$consulta->fetchObject('user');
+		$buscado=$consulta->fetchObject('cliente');
 		return $buscado;
 	}
 

@@ -1,28 +1,32 @@
-<link href="css/bootstrap.min.css" rel="stylesheet">
+<!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
 <link href="css/ingreso.css" rel="stylesheet">
 
 <?php 
 session_start();
-if(isset($_SESSION['registrado'])){  ?>
+if(!isset($_SESSION['registrado'])){  ?>
     <div id="formInvitado" class="container">
 
       <form class="form-ingreso" onsubmit="GuardarInvitado();return false">
         <h2 class="form-ingreso-heading">Datos del invitado</h2>
-        <!-- HACER CAMBIOS -->
-        <input type="text"  maxlength="20"  id="provincia" title="Se necesita un nombre de provincia" class="form-control" placeholder="Provincia" required autofocus>
-           <input type="text"  maxlength="50"  id="localidad" title="Se necesita un nombre de localidad" class="form-control" placeholder="Localidad">
-          <input type="text"  maxlength="50"  id="direccion" title="Se necesita una direccion" class="form-control" placeholder="Direccion">
-        <select name="candidato" id="candidato" class="form-control">
-          <option selected value="Macri">Macri</option>
-          <option value="Massa">Massa</option>
-          <option value="Scioli">Scioli</option>
-        </select><br>
+        <!-- REVISAR-->
+        <label for="nom" class="sr-only">Nombre: </label>
+        <input type="text"  maxlength="20"  id="nom" title="Se necesita un nombre" class="form-control" required autofocus><br>
+        <label for="dni" class="sr-only">DNI: </label>
+        <input type="number" id="dni" class="form-control" placeholder="XXXXXXXX" title="Ingrese DNI sin puntos." min="1000000" max="99999999" required><br>
+        <label for="localidad" class="sr-only">Localidad: </label>
+        <input type="text"  maxlength="50"  id="localidad" title="Se necesita un nombre de localidad" class="form-control"><br>
+        <label for="direccion" class="sr-only">Direccion: </label>
+        <input type="text"  maxlength="50"  id="direccion" title="Se necesita una direccion" class="form-control" placeholder="example 123"><br>
+        <label for="pariente" class="sr-only">Parentezco: </label>
+        <input type="text" maxlength ="30" id="pariente" title="Ingrese su parentezco" class="form-control"><br>
+        <label for="nromesa" class="sr-only">Mesa: </label>
+        <input type="radio" name="nromesa" id="nromesa" value="1" required>Mesa-1
+        <input type="radio" name="nromesa" id="nromesa" value="2" required>Mesa-2<br>
+        <input type="radio" name="nromesa" id="nromesa" value="3" required>Mesa-3<br>
+        <input type="radio" name="nromesa" id="nromesa" value="4" required>Mesa-4<br>
 
-        <input type="radio" name="sexo" id="sexo" value="Masculino" required>Masculino
-        <input type="radio" name="sexo" id="sexo" value="Femenino" required>Femenino<br>
-
-        <input readonly   type="hidden"    id="id" class="form-control" >
-        <input readonly   type="hidden"    id="dni" class="form-control" value="<?php echo $_SESSION['registrado'];?>">
+        <input readonly   type="hidden"    id="idd" class="form-control">
+        <input readonly   type="hidden"    id="id" class="form-control" value="<?php echo $_SESSION['registrado'];?>"> <!--VER-->
 
         <button  class="btn btn-lg btn-success btn-block" type="submit"><span class="glyphicon glyphicon-floppy-save">&nbsp;&nbsp;</span>Guardar </button>
      

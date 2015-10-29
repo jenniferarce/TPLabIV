@@ -1,7 +1,8 @@
 <?php
 class invitado
 {
-	public $id;
+	public $idd;
+	public $id; //de cliente
 	public $nom;
 	public $dni;
 	public $localidad; //AGREGAR
@@ -12,10 +13,14 @@ class invitado
 
 	 public function InsertarInvitado()
 	 {
+	 	require_once("cliente.php");
+
 				$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-				$consulta =$objetoAccesoDato->RetornarConsulta("CALL InsertarInvitado(:nom,:dni,:direccion,:pariente,:nromesa,)");
+				$consulta =$objetoAccesoDato->RetornarConsulta("CALL InsertarInvitado(:id,:nom,:dni,:localidad,:direccion,:pariente,:nromesa,)");
+				$consulta->bindValue(':id',$this->id, PDO::PARAM_STR); //VER
 				$consulta->bindValue(':nom',$this->nom, PDO::PARAM_STR);
 				$consulta->bindValue(':dni',$this->dni, PDO::PARAM_INT);
+				$consulta->bindValue(':localidad', $this->localidad, PDO::PARAM_STR);
 				$consulta->bindValue(':direccion', $this->direccion, PDO::PARAM_STR);
 				$consulta->bindvalue(':pariente',$this->pariente,PDO::PARAM_STR);
 				$consulta->bindValue(':nromesa',$this->nromesa, PDO::PARAM_INT);
@@ -26,21 +31,22 @@ class invitado
 	public function BorrarInvitado()
 	 {
 	 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("CALL BorrarInvitado(:id)");	
-				$consulta->bindValue(':id',$this->id, PDO::PARAM_INT);		
+			$consulta =$objetoAccesoDato->RetornarConsulta("CALL BorrarInvitado(:idd)");	
+				$consulta->bindValue(':idd',$this->idd, PDO::PARAM_INT);		
 				$consulta->execute();
 				return $consulta->rowCount();
 	 } 
 	 public function ModificarInvitado()
 	 {
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("CALL ModificarInvitado(:nom,:dni,:direccion,:pariente,:nromesa,:id)");
+			$consulta =$objetoAccesoDato->RetornarConsulta("CALL ModificarInvitado(:nom,:dni,:direccion,:localidad,:pariente,:nromesa,:idd)");
 			$consulta->bindValue(':nom',$this->nom, PDO::PARAM_STR);
 			$consulta->bindValue(':dni',$this->dni, PDO::PARAM_INT);
+			$consulta->bindValue(':localidad', $this->localidad, PDO::PARAM_STR);
 			$consulta->bindValue(':direccion',$this->direccion, PDO::PARAM_STR);
 			$consulta->bindvalue(':pariente',$this->pariente,PDO::PARAM_STR);
 			$consulta->bindValue(':nromesa',$this->nromesa, PDO::PARAM_INT);
-			$consulta->bindValue(':id',$this->id, PDO::PARAM_INT);
+			$consulta->bindValue(':idd',$this->idd, PDO::PARAM_INT);
 			return $consulta->execute();
 			return $objetoAccesoDato->RetornarUltimoIdInsertado();
 	 }
@@ -48,7 +54,7 @@ class invitado
 	public function GuardarInvitado()
 	 {
 
-	 	if($this->id>0)
+	 	if($this->idd>0)
 	 		{
 	 			$this->ModificarInvitado();
 	 		}else {
@@ -65,11 +71,11 @@ class invitado
 			return $consulta->fetchAll(PDO::FETCH_CLASS, "invitado");		
 	}
 
-	public static function TraerInvitadoId($id) 
+	public static function TraerInvitadoId($idd) 
 	{
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("CALL TraerInvitadoId(:id)");
-			$consulta->bindvalue(':id',$id,PDO::PARAM_INT);
+			$consulta =$objetoAccesoDato->RetornarConsulta("CALL TraerInvitadoId(:idd)");
+			$consulta->bindvalue(':idd',$idd,PDO::PARAM_INT);
 			$consulta->execute();
 			$buscado= $consulta->fetchObject('invitado');
 			return $buscado;			
@@ -83,6 +89,6 @@ class invitado
 		$consulta->execute();
 		$buscado=$consulta->fetchObject('invitado');
 		return $buscado;
-	}
+	}//validda que no exista
 }
 ?>

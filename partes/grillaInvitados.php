@@ -1,5 +1,6 @@
 <?php 
-session_start();//HACER CAMBIOS!!!
+//REVISAR
+session_start();
 if(isset($_SESSION['registrado']))
 {
 	require_once("clases/AccesoDatos.php");
@@ -11,7 +12,7 @@ if(isset($_SESSION['registrado']))
 <table class="table"  style=" background-color: beige;">
 	<thead>
 		<tr>
-			<th>Editar</th><th>Borrar</th><th>Nombre</th><th>DNI</th><th>Localidad</th><th>Direccion</th><th>Pariente</th><th>Nro Mesa</th><th>Mapa</th>
+			<th>Editar</th><th>Borrar</th><th>Nombre</th><th>DNI</th><th>Localidad</th><th>Direccion</th><th>Parentezco</th><th>Mesa</th><th>Mapa</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -20,14 +21,14 @@ if(isset($_SESSION['registrado']))
 		
 foreach ($arrayDeInvitados as $invitado) {
 	echo"<tr>
-			<td><a onclick='Editarinvitado($invitado->id)' class='btn btn-warning'> <span class='glyphicon glyphicon-pencil'>&nbsp;</span>Editar</a></td>
-			<td><a onclick='Borrarinvitado($invitado->id)' class='btn btn-danger'>   <span class='glyphicon glyphicon-trash'>&nbsp;</span>  Borrar</a></td>
+			<td><a onclick='EditarInvitado($invitado->idd)' class='btn btn-warning'> <span class='glyphicon glyphicon-pencil'>&nbsp;</span>Editar</a></td>
+			<td><a onclick='BorrarInvitado($invitado->idd)' class='btn btn-danger'>   <span class='glyphicon glyphicon-trash'>&nbsp;</span>  Borrar</a></td>
+			<td>$invitado->nom</td>
 			<td>$invitado->dni</td>
-			<td>$invitado->provincia</td>
 			<td>$invitado->localidad</td>
 			<td>$invitado->direccion</td>
-			<td>$invitado->candidato</td>
-			<td>$invitado->sexo</td>
+			<td>$invitado->pariente</td>
+			<td>$invitado->nromesa</td>
 			<td><a onclick='VerEnMapa('$invitado->provincia','$invitado->direccion','$invitado->localidad','$invitado->id')' class='btn btn-info'> <span class='glyphicon glyphicon-pencil'>&nbsp;</span>Ver mapa</a></td>
 		</tr>   ";
 }

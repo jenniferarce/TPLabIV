@@ -5,7 +5,7 @@ $clave=$_POST['clave'];
 $recordar=$_POST['recordarme'];
 
 $retorno;
-if(wedding::validarUsuario($_POST['usuario'],$_POST['clave'])
+if(cliente::validarCliente($_POST['usuario'],$_POST['clave'])
 //if($_POST['usuario']=="jenn" && $_POST['clave']=="1234")
 {
 	if($recordar=="true")
@@ -22,7 +22,7 @@ if(wedding::validarUsuario($_POST['usuario'],$_POST['clave'])
 	$retorno="ingreso";
 }else
 {
-		$retorno= "No-esta"; //hacer registro!!!
+		$retorno= "No-esta"; 
 }
 echo $retorno;
 ?>

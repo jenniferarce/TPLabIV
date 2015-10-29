@@ -12,14 +12,13 @@ function GuardarCliente()
 		url:"nexo.php",
 		type:"post",
 		data:{
-			queHacer:"GuardarVoto",
+			queHacer:"GuardarCliente",
 			id:id,
 			usuario:usuario,
 			clave:clave,
 			nombre:nombre,
 			telefono:telefono,
 			email:email,
-			//sexo:sexo	
 		}
 	});
 	funcionAjax.done(function(retorno){
@@ -32,34 +31,35 @@ function GuardarCliente()
 	});	
 }//fin GuardarCliente
 
-function GuardarInvitado()
+function GuardarInvitado() //VALIDAR EXISTENCIA
 {
 		//HACER CAMBIOS!!!
-		
-		var id=$("#id").val();
-		var usuario=$("#usuario").val();
-		var clave=$("#clave").val();
-		var nombre=$("#nombre").val();
-		var telefono=$("#telefono").val();
-		var email=$("#email").val();
-		//var sexo=$("input[name='sexo']:checked").val();
+		var idd=$("#idd").val();
+		var id=$("#id").val();//de cliente
+		var nom=$("#nom").val();
+		var dni=$("#dni").val();
+		var localidad=$("#localidad").val();
+		var direccion=$("#direccion").val();
+		var pariente=$("#pariente").val();
+		var nromesa=$("input[name='nromesa']:checked").val();
 
 		var funcionAjax=$.ajax({
 		url:"nexo.php",
 		type:"post",
 		data:{
-			queHacer:"GuardarVoto",
+			queHacer:"GuardarInvitado",
+			idd:idd,
 			id:id,
-			usuario:usuario,
-			clave:clave,
-			nombre:nombre,
-			telefono:telefono,
-			email:email,
-			//sexo:sexo	
+			nom:nom,
+			dni:dni,
+			localidad:localidad,
+			direccion:direccion,
+			pariente:pariente,
+			nromesa:nromesa
 		}
 	});
 	funcionAjax.done(function(retorno){
-		alert("Se registro correctamente!!");
+		alert("Se guardo el invitado");
 		mostrarLogin();
 		$("#informe").html("cantidad de agregados "+ retorno);
 	});
@@ -104,13 +104,12 @@ function EditarInvitado(idParametro)
 	funcionAjax.done(function(retorno){
 		var invitado =JSON.parse(retorno);
 		//alert(retorno);
-		$("#id").val(invitado.id);
+		$("#idd").val(invitado.idd);
 		$("#nom").val(invitado.nom);
 		$("#dni").val(invitado.dni);
 		$("#direccion").val(invitado.direccion);
 		$("#pariente").val(invitado.pariente);
 		var nromesa = invitado.nromesa;
-
 
 										if(nromesa=="Mesa-1")
 										{
@@ -120,9 +119,16 @@ function EditarInvitado(idParametro)
 										if(nromesa=="Mesa-2")
 										{
 											$('input[id=nromesa][value="2"]').attr('checked', true); 
-										}*/
+										}
+										if(nromesa=="Mesa-3")
+										{
+											$('input[id=nromesa][value="3"]').attr('checked', true); 
+										}
 
-
+										if(nromesa=="Mesa-4")
+										{
+											$('input[id=nromesa][value="4"]').attr('checked', true); 
+										}
 	});
 	funcionAjax.fail(function(retorno){	
 		$("#informe").html(retorno.responseText);

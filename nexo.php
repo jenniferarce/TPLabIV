@@ -36,6 +36,20 @@ switch ($queHago) {
 			$cantidad=$cliente->GuardarCliente();
 			echo $cantidad;
 	break;
+	case 'GuardarInvitado':
+			$invitado = new invitado();
+			$invitado->id=$_POST['idd'];
+			$cliente->id=$_POST['id'];
+			$invitado->nom=$_POST['nom'];
+			$invitado->dni=$_POST['dni'];
+			$invitado->localidad=$_POST['localidad'];
+			$invitado->direccion=$_POST['direccion'];
+			$invitado->pariente=$_POST['pariente'];
+			$invitado->nromesa=$_POST['nromesa'];
+			
+			$cantidad=$invitado->GuardarInvitado();
+			echo $cantidad;
+	break;
 	case 'TraerInvitados':
 			//$invitado = invitado::TraerUninvitado($_POST['id']);	
 			$invitado=invitado::TraerInvitados();	

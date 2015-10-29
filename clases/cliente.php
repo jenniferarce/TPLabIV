@@ -8,7 +8,7 @@ class cliente
 	public $telefono;
 	public $email;
 
-	 public function InsertarCliente()
+	 public function GuardarCliente()
 	 {
 				$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 				$consulta =$objetoAccesoDato->RetornarConsulta("CALL InsertarCliente(:usuario,:clave,:nombre,:telefono,:email)");
@@ -79,6 +79,15 @@ class cliente
 		$consulta=$objetoAccesoDato->RetornarConsulta("CALL validarCliente(:usuario,:clave)");
 		$consulta->bindvalue(':usuario',$this->usuario,PDO::PARAM_STR);
 		$consulta->bindvalue(':clave',$this->clave,PDO::PARAM_STR);
+		$consulta->execute();
+		$buscado=$consulta->fetchObject('cliente');
+		return $buscado;
+	}
+	public function validarRegistro($usuario)
+	{
+		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+		$consulta=$objetoAccesoDato->RetornarConsulta("CALL validarRegistro(:usuario)");
+		$consulta->bindvalue(':usuario',$this->usuario,PDO::PARAM_STR);
 		$consulta->execute();
 		$buscado=$consulta->fetchObject('cliente');
 		return $buscado;

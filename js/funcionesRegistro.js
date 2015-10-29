@@ -1,6 +1,6 @@
-function validarRegistro() //VER
+function validarRegistro() //REVISAR
 {
-		var varUsuario=$("#usuario").val();
+	var varUsuario=$("#usuario").val();
 
 	var funcionAjax=$.ajax({
 		url:"php/validarRegistro.php",
@@ -9,12 +9,13 @@ function validarRegistro() //VER
 			usuario:varUsuario}
 		});
 	funcionAjax.done(function(retorno){
-		if(retorno=="No-esta"){
-			//mostrarregistro();
-			GuardarCliente();
+		if(retorno=="esta"){
+			mostrarregistro();
 			$("#usuario").html(retorno);
 		}
-		else{}
+		else{
+			GuardarCliente();
+		}
 	});
 	funcionAjax.fail(function(retorno){
 
@@ -24,5 +25,5 @@ function validarRegistro() //VER
 
 function validarInvitado()
 {
-
+	//HACER
 }//fin validarInvitado

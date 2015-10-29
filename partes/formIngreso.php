@@ -1,5 +1,5 @@
-<!--<link href="components/bootstrap-css/css/bootstrap.min.css" rel="stylesheet">
-<link href="css/ingreso.css" rel="stylesheet"> -->
+<!--<link href="components/bootstrap-css/css/bootstrap.min.css" rel="stylesheet"> -->
+<link href="css/ingreso.css" rel="stylesheet">
 
 <?php 
  
@@ -10,9 +10,9 @@ if(!isset($_SESSION['registrado'])){  ?>
       <form class="form-ingreso" onsubmit="validarLogin();return false;">
         <h2 class="form-ingreso-heading">Ingrese su cuenta</h2>
           <!--<label for="usuario" class="sr-only">Usuario</label>-->
-          <input type="text" id="usuario" name="usuario" class="form-control" title="Ingrese su nombre de usuario" required autofocus>
+          <input type="text" id="usuario" name="usuario" class="form-control" title="Ingrese su nombre de usuario" placeholder="Usuario" required autofocus>
           <br>
-          <input type="password" id="clave" name="clave" class="form-control" title="Ingrese su contraseña" required>
+          <input type="password" id="clave" name="clave" class="form-control" title="Ingrese su contraseña" placeholder="Clave" required>
           <br>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
       </form>

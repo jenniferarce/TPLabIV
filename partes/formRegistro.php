@@ -14,9 +14,9 @@ if(!isset($_SESSION['registrado'])){  ?>
           <label for="clave" class="sr-only">Clave</label>
           <input type="password" id="clave" name="clave" class="form-control" title="Ingrese su contraseña" required><br>
           <label for="email" class="sr-only">E-mail</label>
-          <input type="email" id="email" name="email" title="Ingrese un correo valido" placeholder="example@example.com" required><br>
+          <input type="email" id="email" name="email" class="form-control" title="Ingrese un correo valido" placeholder="example@example.com" required><br>
           <label for="telefono" class="sr-only">Telefono</label>
-          <input type="tel" id="telefono" name="telefono" title="Ingrese su numero de telefono"><br>
+          <input type="tel" id="telefono" name="telefono" class="form-control" title="Ingrese su numero de telefono"><br>
 
           <button class="btn btn-lg btn-primary btn-block" type="submit">Registrarme</button>
       </form>

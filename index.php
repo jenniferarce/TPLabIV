@@ -99,7 +99,7 @@
         <div class="row">
             <div class="col-sm-8" id="principal"><!--Van los forms que vienen de los botones-->
                     
-                    <a class="btn btn-default btn-lg" href="#" onclick="mostrarlogin()">Call to Action &raquo;</a>
+                   <!-- <a class="btn btn-default btn-lg" href="#" onclick="mostrarlogin()">Call to Action &raquo;</a>-->
                 
             </div>
             <div class="col-sm-4">

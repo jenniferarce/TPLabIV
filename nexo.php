@@ -12,16 +12,16 @@ switch ($queHago) {
 	case 'mostrarregistro':
 			include("partes/formRegistro.php");
 		break;
-	case 'ingresarInvitados':
-			//include("partes/formVotar.php");
+	case 'ingresoInvitados':
+			include("partes/formInvitado.php");
 		break;
 	case 'mostrarInvitados':
-			//include("partes/formListado.php");
+			include("partes/grillaInvitados.php");
 		break;
 	case 'BorrarInvitado':
-			$cliente = new cliente();
-			$cliente->id=$_POST['id'];
-			$cantidad=$cliente->BorrarCliente();
+			$invitado = new invitado();
+			$invitado->id=$_POST['id'];
+			$cantidad=$invitado->BorrarInvitado();
 			echo $cantidad;
 	break;
 	case 'GuardarCliente':
@@ -43,7 +43,7 @@ switch ($queHago) {
 
 	break;
 	case 'TraerInvitadosId':
-		$invitado = invitado::TraerinvitadosId($_POST['id']);	 
+		$invitado = invitado::TraerInvitadosId($_POST['id']);	 
 		echo json_encode($invitado);
 	break;
 	/*case 'VerEnMapa':

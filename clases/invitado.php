@@ -4,6 +4,7 @@ class invitado
 	public $id;
 	public $nom;
 	public $dni;
+	public $localidad; //AGREGAR
 	public $direccion;
 	public $pariente;
 	public $nromesa;

@@ -7,7 +7,7 @@ session_start();
 if(!isset($_SESSION['registrado'])){  ?>
     <div id="formLogin" class="container">
 
-      <form class="form-ingreso" onsubmit="validarCliente();return false;">
+      <form class="form-ingreso" onsubmit="validarLogin();return false;">
         <h2 class="form-ingreso-heading">Ingrese su cuenta</h2>
           <!--<label for="usuario" class="sr-only">Usuario</label>-->
           <input type="text" id="usuario" name="usuario" class="form-control" title="Ingrese su nombre de usuario" required autofocus>

@@ -32,8 +32,10 @@
     <script type="text/javascript" src="http://maps.google.com/maps/api/js"></script> para google maps-->
 
     <script type="text/javascript" src="js/funciones.js"></script>
-    <!--<script type="text/javascript" src="js/funcionesABM.js"></script>
-    <script type="text/javascript" src="js/funcionesMapa.js"></script>
+    <script type="text/javascript" src="js/funcionesABM.js"></script>
+    <script type="text/javascript" src="js/funcionesLogin.js"></script>
+    <script type="text/javascript" src="js/funcionesRegistro.js"></script>
+    <!--<script type="text/javascript" src="js/funcionesMapa.js"></script>
     <script type="text/javascript" src="js/geolocalizacionCommon.js"></script>
     <script type="text/javascript" src="js/moduloGeolocalizacion.js"></script>-->
 
@@ -59,10 +61,10 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a onclick="mostrarlogin()" href="">Ingresar</a>
+                        <a onclick="mostrarlogin()" href="#">Ingresar</a>
                     </li>
                     <li>
-                        <a onclick="mostrarregistro()" href="">Registrarse</a>
+                        <a onclick="mostrarregistro()" href="#">Registrarse</a>
                     </li>
                     <li>
                         <a href="#">Ingresar invitados</a>

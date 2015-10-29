@@ -3,12 +3,12 @@
 
 <?php 
  
-//session_start();
-//if(!isset($_SESSION['registrado'])){  ?>
+session_start();
+if(!isset($_SESSION['registrado'])){  ?>
     <div id="formRegistro" class="container">
 
       <form class="form-ingreso" onsubmit="validarRegistro();return false;">
-        <h2 class="form-ingreso-heading">Ingrese su cuenta</h2>
+        <h2 class="form-ingreso-heading">Ingrese sus datos</h2>
           <label for="usuario" class="sr-only">Usuario</label>
           <input type="text" id="usuario" name="usuario" class="form-control" title="Ingrese su nombre de usuario" required autofocus><br>
           <label for="clave" class="sr-only">Clave</label>
@@ -23,7 +23,7 @@
 
     </div> <!-- /container -->
 
-  <?php }else{    echo"<h3>usted '".$_SESSION['registrado']."' esta logeado. </h3>";?>         
+  <?php }else{    echo"<h3>usted '".$_SESSION['registrado']."' esta logeado, no puede registrarse. </h3>";?>         
     <button onclick="deslogear()" class="btn btn-lg btn-danger btn-block" type="button"><span class="glyphicon glyphicon-off">&nbsp;</span>Deslogearme</button>
  <script type="text/javascript">
  </script>

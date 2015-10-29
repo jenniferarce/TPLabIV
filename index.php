@@ -26,9 +26,10 @@
     <![endif]-->
 
     <!-- media queries css -->
+<!--
     <script src="components/jquery/dist/jquery.min.js"></script>
 
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js"></script> <!--para google maps-->
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js"></script> para google maps-->
 
     <script type="text/javascript" src="js/funciones.js"></script>
     <!--<script type="text/javascript" src="js/funcionesABM.js"></script>
@@ -50,20 +51,24 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" onclick="mostrarlogin()" href="">Ingresar</a>
+                <a class="navbar-brand" href="">Home</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="" onclick="">Ingresar invitados</a>
+                        <a onclick="mostrarlogin()" href="">Ingresar</a>
+                    </li>
+                    <li>
+                        <a onclick="mostrarregistro()" href="">Registrarse</a>
+                    </li>
+                    <li>
+                        <a href="#">Ingresar invitados</a>
                     </li>
                     <li>
                         <a href="#">Grilla</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -90,13 +95,10 @@
         <hr>
 
         <div class="row">
-            <div class="col-sm-8">
-                <h2>What We Do</h2>
-                <p>Introduce the visitor to the business using clear, informative text. Use well-targeted keywords within your sentences to make sure search engines can find the business.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et molestiae similique eligendi reiciendis sunt distinctio odit? Quia, neque, ipsa, adipisci quisquam ullam deserunt accusantium illo iste exercitationem nemo voluptates asperiores.</p>
-                <p>
-                    <a class="btn btn-default btn-lg" href="#">Call to Action &raquo;</a>
-                </p>
+            <div class="col-sm-8" id="principal"><!--Van los forms que vienen de los botones-->
+                    
+                    <a class="btn btn-default btn-lg" href="#" onclick="mostrarlogin()">Call to Action &raquo;</a>
+                
             </div>
             <div class="col-sm-4">
                 <h2>Contacto</h2>
@@ -150,10 +152,10 @@
     <!-- /.container -->
 
     <!-- jQuery -->
-    <script src="bootstrap-css/js/jquery.js"></script>
+    <script src="components/bootstrap-css/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="bootstrap-css/js/bootstrap.min.js"></script>
+    <script src="components/bootstrap-css/js/bootstrap.min.js"></script>
 
 </body>
 

@@ -3,18 +3,18 @@
 
 <?php 
  
-session_start();
-if(!isset($_SESSION['registrado'])){  ?>
-    <div id="formLogin" class="container">
+//session_start();
+//if(!isset($_SESSION['registrado'])){  ?>
+    <div id="formRegistro" class="container">
 
-      <form class="form-ingreso" onsubmit="validarCliente();return false;">
+      <form class="form-ingreso" onsubmit="validarRegistro();return false;">
         <h2 class="form-ingreso-heading">Ingrese su cuenta</h2>
           <!--<label for="usuario" class="sr-only">Usuario</label>-->
           <input type="text" id="usuario" name="usuario" class="form-control" title="Ingrese su nombre de usuario" required autofocus>
           <br>
-          <input type="password" id="clave" name="clave" class="form-control" title="Ingrese su contraseña" required>
-          <br>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
+          <input type="password" id="clave" name="clave" class="form-control" title="Ingrese su contraseña" required><br>
+          <input type="">
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Registrarme</button>
       </form>
 
     </div> <!-- /container -->

@@ -8,7 +8,6 @@ $retorno;
 if(wedding::validarUsuario($_POST['usuario'],$_POST['clave'])
 //if($_POST['usuario']=="jenn" && $_POST['clave']=="1234")
 {
-
 	if($recordar=="true")
 	{
 		setcookie("registro",$usuario,  time()+36000 , '/');

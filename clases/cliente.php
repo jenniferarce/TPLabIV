@@ -21,7 +21,7 @@ class cliente
 				$consulta->execute();		
 				return $objetoAccesoDato->RetornarUltimoIdInsertado();
 	 }
-	public function BorrarCliente()
+	/*public function BorrarCliente()
 	 {
 	 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 			$consulta =$objetoAccesoDato->RetornarConsulta("CALL BorrarCliente(:id)");	
@@ -72,7 +72,7 @@ class cliente
 			$buscado= $consulta->fetchObject('cliente');
 			return $buscado;			
 
-	}
+	}*/
 	public function validarCliente($usuario,$clave)
 	{
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 

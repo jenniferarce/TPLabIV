@@ -14,6 +14,12 @@ if(!isset($_SESSION['registrado'])){  ?>
           <br>
           <input type="password" id="clave" name="clave" class="form-control" title="Ingrese su contraseña" placeholder="Clave" required>
           <br>
+       <div class="checkbox">
+          <label>
+            <input type="checkbox" id="recordarme" checked> Recordame
+          </label>
+          
+        </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
       </form>
 

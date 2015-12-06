@@ -12,7 +12,7 @@ if(isset($_SESSION['registrado']))
 <table class="table"  style=" background-color: beige;">
 	<thead>
 		<tr>
-			<th>Editar</th><th>Borrar</th><th>Nombre</th><th>DNI</th><th>Localidad</th><th>Direccion</th><th>Parentezco</th><th>Mesa</th><th>Mapa</th>
+			<th>Editar</th><th>Borrar</th><th>Nombre</th><th>DNI</th><th>Provincia</th><th>Localidad</th><th>Direccion</th><th>Parentezco</th><th>Mesa</th><th>Mapa</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -25,6 +25,7 @@ foreach ($arrayDeInvitados as $invitado) {
 			<td><a onclick='BorrarInvitado($invitado->idd)' class='btn btn-danger'>   <span class='glyphicon glyphicon-trash'>&nbsp;</span>  Borrar</a></td>
 			<td>$invitado->nom</td>
 			<td>$invitado->dni</td>
+			<td>$invitado->provincia</td>
 			<td>$invitado->localidad</td>
 			<td>$invitado->direccion</td>
 			<td>$invitado->pariente</td>

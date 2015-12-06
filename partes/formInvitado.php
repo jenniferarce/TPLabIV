@@ -9,22 +9,22 @@ if(!isset($_SESSION['registrado'])){  ?>
       <form class="form-ingreso" onsubmit="GuardarInvitado();return false">
         <h2 class="form-ingreso-heading">Datos del invitado</h2>
         <!-- REVISAR-->
-        <label for="nom" class="sr-only">Nombre: </label>
-        <input type="text"  maxlength="20"  id="nom" title="Se necesita un nombre" class="form-control" required autofocus><br>
-        <label for="dni" class="sr-only">DNI: </label>
-        <input type="number" id="dni" class="form-control" placeholder="XXXXXXXX" title="Ingrese DNI sin puntos." min="1000000" max="99999999" required><br>
-        <label for="localidad" class="sr-only">Localidad: </label>
-        <input type="text"  maxlength="50"  id="localidad" title="Se necesita un nombre de localidad" class="form-control"><br>
-        <label for="direccion" class="sr-only">Direccion: </label>
-        <input type="text"  maxlength="50"  id="direccion" title="Se necesita una direccion" class="form-control" placeholder="example 123"><br>
-        <label for="pariente" class="sr-only">Parentezco: </label>
-        <input type="text" maxlength ="30" id="pariente" title="Ingrese su parentezco" class="form-control"><br>
-        <label for="nromesa" class="sr-only">Mesa: </label>
+    
+        <input type="text"  maxlength="20"  id="nom" title="Se necesita un nombre" plaeholder="Nombre" class="form-control" required autofocus><br>
+        <input type="number" id="dni" class="form-control" placeholder="DNI" title="Ingrese DNI sin puntos." min="1000000" max="99999999" required><br>
+        <select id="provincia" class="form-control">
+            <option value="buenos aires" default>Buenos Aires</option>
+            <option value="capital federal">Capital Federal</option>
+            <option value="mendoza">Mendoza</option>
+        </select><br>
+        <input type="text"  maxlength="50"  id="localidad" title="Se necesita un nombre de localidad" placeholder="Localidad" class="form-control"><br>
+        <input type="text"  maxlength="50"  id="direccion" title="Se necesita una direccion" class="form-control" placeholder="Direccion"><br>
+        <input type="text" maxlength ="30" id="pariente" title="Ingrese su parentezco" placeholder="Parentezco" class="form-control" optional><br>
         <input type="radio" name="nromesa" id="nromesa" value="1" required>Mesa-1
-        <input type="radio" name="nromesa" id="nromesa" value="2" required>Mesa-2<br>
-        <input type="radio" name="nromesa" id="nromesa" value="3" required>Mesa-3<br>
+        <input type="radio" name="nromesa" id="nromesa" value="2" required>Mesa-2
+        <input type="radio" name="nromesa" id="nromesa" value="3" required>Mesa-3
         <input type="radio" name="nromesa" id="nromesa" value="4" required>Mesa-4<br>
-
+        
         <input readonly   type="hidden"    id="idd" class="form-control">
         <input readonly   type="hidden"    id="id" class="form-control" value="<?php echo $_SESSION['registrado'];?>"> <!--VER-->
 

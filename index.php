@@ -61,16 +61,16 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a onclick="mostrarlogin()" href="#">Ingresar</a>
+                        <a onclick="Mostrar('mostrarlogin')" href="#">Ingresar</a>
                     </li>
                     <li>
-                        <a onclick="mostrarregistro()" href="#">Registrarse</a>
+                        <a onclick="Mostrar('mostrarregistro')" href="#">Registrarse</a>
                     </li>
                     <li>
-                        <a href="#">Ingresar invitados</a>
+                        <a onclick="Mostrar('ingresoInvitados')" href="#">Ingresar invitados</a>
                     </li>
                     <li>
-                        <a href="#">Grilla</a>
+                        <a onclick="Mostrar('mostrarInvitados')" href="#">Grilla</a>
                     </li>
                 </ul>
             </div>
@@ -91,8 +91,8 @@
         </div>
     </header>
 
-    <!-- Page Content -->
-    <div class="container">
+    <!-- Page Content    class="container"-->
+    <div >
 
         <hr>
 
@@ -101,7 +101,7 @@
                     
                    <!-- <a class="btn btn-default btn-lg" href="#" onclick="mostrarlogin()">Call to Action &raquo;</a>-->
                 
-            </div>
+            </div><!--principal-->
             <div class="col-sm-4">
                 <h2>Contacto</h2>
                 <address>
@@ -111,14 +111,18 @@
                     <br>
                 </address>
                 <address>
-                    <abbr title="Email">E:</abbr> <a href="mailto:#">contacto@arcejennifer.tuars.com</a>
+                    <abbr title="Email">E-mail:</abbr> <a href="mailto:contacto@arcejennifer.tuars.com">contacto@arcejennifer.tuars.com</a>
                 </address>
-            </div>
-        </div>
-        <!-- /.row -->
 
-        <hr>
-<!--
+                 <h4 class="widgettitle">informe </h4>
+                <div id="informe">
+                <!--contenido dinamico cargado por ajax-->
+                </div><!-- informe para cookies -->
+            </div><!--contacto-->
+           
+        </div><!-- /.row -->
+    <!-- /#sidebar -->
+       <!-- <hr>
         <div class="row">
             <div class="col-sm-4">
                 <img class="img-circle img-responsive img-center" src="http://placehold.it/300x300" alt="">
@@ -144,7 +148,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Wedding 2015 - JA</p>
+                    <p>Copyright &copy; Wedding 2015 - J. A.</p>
                 </div>
             </div>
             <!-- /.row -->
@@ -152,6 +156,8 @@
 
     </div>
     <!-- /.container -->
+
+
 
     <!-- jQuery -->
     <script src="components/bootstrap-css/js/jquery.js"></script>

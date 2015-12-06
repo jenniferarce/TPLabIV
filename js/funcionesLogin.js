@@ -14,7 +14,7 @@ function validarLogin()
 		});
 	funcionAjax.done(function(retorno){
 		if(retorno=="No-esta"){
-			mostrarlogin();
+			Mostrar('mostrarlogin');
 			$("#usuario").html(retorno);
 		}
 		else{}
@@ -32,7 +32,7 @@ function deslogear()
 	});
 	funcionAjax.done(function(retorno){
 			MostarBotones();
-			mostrarlogin();
+			Mostrar('mostrarlogin');
 			$("#usuario").val("Sin usuario.");
 			$("#BotonLogin").html("Login<br>-Sesión-");
 			$("#BotonLogin").removeClass("btn-danger");

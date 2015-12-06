@@ -10,7 +10,7 @@ function validarRegistro() //REVISAR
 		});
 	funcionAjax.done(function(retorno){
 		if(retorno=="esta"){
-			mostrarregistro();
+			Mostrar('mostrarregistro');
 			$("#usuario").html(retorno);
 		}
 		else{

@@ -23,7 +23,7 @@ function GuardarCliente()
 	});
 	funcionAjax.done(function(retorno){
 		alert("Se registro correctamente!!");
-		mostrarLogin();
+		Mostrar('mostrarlogin');
 		$("#informe").html("cantidad de agregados "+ retorno);
 	});
 	funcionAjax.fail(function(retorno){	
@@ -60,7 +60,7 @@ function GuardarInvitado() //VALIDAR EXISTENCIA
 	});
 	funcionAjax.done(function(retorno){
 		alert("Se guardo el invitado");
-		mostrarLogin();
+		Mostrar('mostrarInvitados');
 		$("#informe").html("cantidad de agregados "+ retorno);
 	});
 	funcionAjax.fail(function(retorno){	
@@ -81,7 +81,7 @@ function BorrarInvitado(idParametro)
 		}
 	});
 	funcionAjax.done(function(retorno){
-		mostrarInvitados();
+		Mostrar('mostrarInvitados');
 		$("#informe").html("cantidad de eliminados "+ retorno);		
 	});
 	funcionAjax.fail(function(retorno){	
@@ -107,6 +107,7 @@ function EditarInvitado(idParametro)
 		$("#idd").val(invitado.idd);
 		$("#nom").val(invitado.nom);
 		$("#dni").val(invitado.dni);
+		$("#provincia").val(invitado.provincia)
 		$("#direccion").val(invitado.direccion);
 		$("#pariente").val(invitado.pariente);
 		var nromesa = invitado.nromesa;

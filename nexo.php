@@ -42,6 +42,7 @@ switch ($queHago) {
 			$cliente->id=$_POST['id'];
 			$invitado->nom=$_POST['nom'];
 			$invitado->dni=$_POST['dni'];
+			$invitado->provincia=$_POST['provincia'];
 			$invitado->localidad=$_POST['localidad'];
 			$invitado->direccion=$_POST['direccion'];
 			$invitado->pariente=$_POST['pariente'];

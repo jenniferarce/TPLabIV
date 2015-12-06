@@ -1,40 +1,3 @@
-function mostrarlogin()
-{
-		//alert(queMostrar);
-	var funcionAjax=$.ajax({
-		url:'nexo.php',
-		type:'post',
-		data:{queHacer:'mostrarlogin'}
-	});
-	funcionAjax.done(function(retorno){
-
-		$("#principal").html(retorno);
-	});
-	funcionAjax.fail(function(retorno){
-		$("#informe").html(retorno.responseText);	
-	});
-	funcionAjax.always(function(retorno){
-	});
-}//fin mostrarlogin
-
-function mostrarregistro()
-{
-	var funcionAjax=$.ajax({
-		url:'nexo.php',
-		type:'post',
-		data:{queHacer:'mostrarregistro'}
-	});
-	funcionAjax.done(function(retorno){
-		$('#principal').html(retorno);
-	});
-	funcionAjax.fail(function(retorno){
-		$('#informe').html(retorno.responseText);	
-	});
-	funcionAjax.always(function(retorno){
-	});
-}//fin mostrarregistro
-
-
 function ingresoInvitados()
 {
 
@@ -52,23 +15,21 @@ function ingresoInvitados()
 	});
 	//deslogear();
 }//fin ingresoInvitados
-
-function mostrarInvitados()
+function Mostrar(quemostrar)
 {
-	var funcionAjax=$.ajax({
-		url:"nexo.php",
-		type:"post",
-		data:{queHacer:"mostrarInvitados"}
+	var funcionAjax = $.ajax({
+	url: 'nexo.php',
+	type: 'post',
+	data:{queHacer: quemostrar}
 	});
-
-	funcionAjax.done(function(retorno){
-
-		$("#principal").html(retorno);
+	funcionAjax.done(function(retorno)
+	{
+		$('#principal').html(retorno);
 	});
-	funcionAjax.fail(function(retorno){
+		funcionAjax.fail(function(retorno){	
 		$("#informe").html(retorno.responseText);	
-	});
-}//fin mostrarInvitados
+	});	
+}
 
 /*
 function MostarBotones()

@@ -12,13 +12,6 @@ if(!isset($_SESSION['registrado'])){  ?>
     
         <input type="text"  maxlength="20"  id="nom" title="Se necesita un nombre" plaeholder="Nombre" class="form-control" required autofocus><br>
         <input type="number" id="dni" class="form-control" placeholder="DNI" title="Ingrese DNI sin puntos." min="1000000" max="99999999" required><br>
-        <select id="provincia" class="form-control">
-            <option value="buenos aires" default>Buenos Aires</option>
-            <option value="capital federal">Capital Federal</option>
-            <option value="mendoza">Mendoza</option>
-        </select><br>
-        <input type="text"  maxlength="50"  id="localidad" title="Se necesita un nombre de localidad" placeholder="Localidad" class="form-control"><br>
-        <input type="text"  maxlength="50"  id="direccion" title="Se necesita una direccion" class="form-control" placeholder="Direccion"><br>
         <input type="text" maxlength ="30" id="pariente" title="Ingrese su parentezco" placeholder="Parentezco" class="form-control" optional><br>
         <input type="radio" name="nromesa" id="nromesa" value="1" required>Mesa-1
         <input type="radio" name="nromesa" id="nromesa" value="2" required>Mesa-2

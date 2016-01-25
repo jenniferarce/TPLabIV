@@ -25,9 +25,6 @@ foreach ($arrayDeInvitados as $invitado) {
 			<td><a onclick='BorrarInvitado($invitado->idd)' class='btn btn-danger'>   <span class='glyphicon glyphicon-trash'>&nbsp;</span>  Borrar</a></td>
 			<td>$invitado->nom</td>
 			<td>$invitado->dni</td>
-			<td>$invitado->provincia</td>
-			<td>$invitado->localidad</td>
-			<td>$invitado->direccion</td>
 			<td>$invitado->pariente</td>
 			<td>$invitado->nromesa</td>
 			<td><a onclick='VerEnMapa('$invitado->provincia','$invitado->direccion','$invitado->localidad','$invitado->id')' class='btn btn-info'> <span class='glyphicon glyphicon-pencil'>&nbsp;</span>Ver mapa</a></td>

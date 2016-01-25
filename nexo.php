@@ -61,9 +61,9 @@ switch ($queHago) {
 		$invitado = invitado::TraerInvitadosId($_POST['id']);	 
 		echo json_encode($invitado);
 	break;
-	/*case 'VerEnMapa':
-		include("partes/formMapa.php");
-	break;*/
+	case 'VerEnMapa':
+		include('partes/formMapaGoogle.php');
+		break;
 	default:
 		# code...
 		break;

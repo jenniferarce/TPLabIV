@@ -35,9 +35,9 @@
     <script type="text/javascript" src="js/funcionesABM.js"></script>
     <script type="text/javascript" src="js/funcionesLogin.js"></script>
     <script type="text/javascript" src="js/funcionesRegistro.js"></script>
-    <!--<script type="text/javascript" src="js/funcionesMapa.js"></script>
+    <script type="text/javascript" src="js/funcionesMapa.js"></script>
     <script type="text/javascript" src="js/geolocalizacionCommon.js"></script>
-    <script type="text/javascript" src="js/moduloGeolocalizacion.js"></script>-->
+    <script type="text/javascript" src="js/moduloGeolocalizacion.js"></script>
 
 </head>
 
@@ -108,7 +108,7 @@
                     <strong>Wedding</strong>
                     <br>Av. Bartolome Mitre 750
                     <br>Avellaneda, Bs As 1870
-                    <br>
+                    <br><td><button onclick="VerEnMapa('Buenos Aires','Avenida Bartolome Mitre 750','Avellaneda')" class="btn btn-info">Ver en Mapa</td> <!-- ARREGLAR --> 
                 </address>
                 <address>
                     <abbr title="Email">E-mail:</abbr> <a href="mailto:contacto@arcejennifer.tuars.com">contacto@arcejennifer.tuars.com</a>

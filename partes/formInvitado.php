@@ -3,7 +3,7 @@
 
 <?php 
 session_start();
-if(!isset($_SESSION['registrado'])){  ?>
+if(isset($_SESSION['registrado'])){  ?>
     <div id="formInvitado" class="container">
 
       <form class="form-ingreso" onsubmit="GuardarInvitado();return false">
@@ -12,7 +12,18 @@ if(!isset($_SESSION['registrado'])){  ?>
     
         <input type="text"  maxlength="20"  id="nom" title="Se necesita un nombre" plaeholder="Nombre" class="form-control" required autofocus><br>
         <input type="number" id="dni" class="form-control" placeholder="DNI" title="Ingrese DNI sin puntos." min="1000000" max="99999999" required><br>
-        <input type="text" maxlength ="30" id="pariente" title="Ingrese su parentezco" placeholder="Parentezco" class="form-control" optional><br>
+        <!--<input type="text" maxlength ="30" id="pariente" title="Ingrese su parentezco" placeholder="Parentezco" class="form-control" optional><br>-->
+        <select id="pariente" class="form-control" title="Seleccione un parentezco"> 
+            <option value="hermano-a" default>Hermano/a</option>
+            <option value="padre">Padre</option>
+            <option value="madre">Madre</option>
+            <option value="primo-a">Primo/a</option>
+            <option value="tio-a">Tio/a</option>
+            <option value="cuniado-a">Cuñado/a</option>
+            <option value="suegro-a">Suegro/a</option>
+            <option value="amigo-a">Amigo/a</option>
+            <option value="otro">Otro</option>
+        </select><br>
         <input type="radio" name="nromesa" id="nromesa" value="1" required>Mesa-1
         <input type="radio" name="nromesa" id="nromesa" value="2" required>Mesa-2
         <input type="radio" name="nromesa" id="nromesa" value="3" required>Mesa-3

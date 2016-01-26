@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
     <meta charset="utf-8">
@@ -9,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Fiesta de casamiento</title>
+    <title>J.A.Eventos - Casamientos</title>
 	
 	<!--<link rel="stylesheet" type="text/css" href="css/inicio.css">-->
     <!-- Bootstrap Core CSS -->
@@ -41,7 +40,7 @@
 
 </head>
 
-<body>
+<body style="background-image:url(components/images/bg5.jpg); position:"back"; opacity: 0.4;">
 
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -85,7 +84,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="tagline">Fiesta de casamiento</h1>
+                    <img src="components/images/logo.png" style="width:250px;height:170px;">
+                    <!--<h1 class="tagline">Fiesta de casamiento</h1>-->
                 </div>
             </div>
         </div>
@@ -97,7 +97,7 @@
         <hr>
 
         <div class="row">
-            <div class="col-sm-8" id="principal"><!--Van los forms que vienen de los botones-->
+            <div class="col-sm-8" id="principal" align="center"><!--Van los forms que vienen de los botones-->
                     
                    <!-- <a class="btn btn-default btn-lg" href="#" onclick="mostrarlogin()">Call to Action &raquo;</a>-->
                 
@@ -105,10 +105,10 @@
             <div class="col-sm-4">
                 <h2>Contacto</h2>
                 <address>
-                    <strong>Wedding</strong>
+                    <strong>J.A.Eventos - Casamientos</strong>
                     <br>Av. Bartolome Mitre 750
                     <br>Avellaneda, Bs As 1870
-                    <br><td><button onclick="VerEnMapa('Buenos Aires','Avenida Bartolome Mitre 750','Avellaneda')" class="btn btn-info">Ver en Mapa</td> <!-- ARREGLAR --> 
+                    <br><td><button onclick="VerEnMapa('Buenos Aires','Avenida Bartolome Mitre 750','Avellaneda')" class="btn btn-info">Ver en Mapa</td> 
                 </address>
                 <address>
                     <abbr title="Email">E-mail:</abbr> <a href="mailto:contacto@arcejennifer.tuars.com">contacto@arcejennifer.tuars.com</a>
@@ -148,7 +148,8 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Wedding 2015 - J. A.</p>
+                    <p align="center"><img src="components/images/logo1.png"></p>
+                    <p align="center">Copyright &copy; 2015 - 2016</p>
                 </div>
             </div>
             <!-- /.row -->

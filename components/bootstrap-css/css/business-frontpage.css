@@ -11,6 +11,7 @@ body {
 
 .business-header {
     height: 250px;
+    border-radius: 50px;
     background: url('../../images/pareja02.jpg') center center fixed; /* no-repeat scroll; /*http://placehold.it/1920x400*/
     -webkit-background-size: cover;
     -moz-background-size: cover;

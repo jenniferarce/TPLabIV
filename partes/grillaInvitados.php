@@ -35,7 +35,7 @@ foreach ($arrayDeInvitados as $invitado) {
 </table>
 
 <?php 	}else	{
-		echo "<h4 class='widgettitle'>No estas registrado</h4>";
+		echo "<h4 class='widgettitle'>Para acceder, ingrese a su cuenta.</h4>";
 	}
 
 	 ?>

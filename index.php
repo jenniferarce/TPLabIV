@@ -54,22 +54,22 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="">Home</a>
+                <a class="navbar-brand" href=""> <span class="glyphicon glyphicon-home"></a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a onclick="Mostrar('mostrarlogin')" href="#">Ingresar</a>
+                        <a onclick="Mostrar('mostrarlogin')" href="#"><span class="glyphicon glyphicon-user"></span>Cuenta</a>
                     </li>
-                    <li>
+                   <!-- <li>
                         <a onclick="Mostrar('mostrarregistro')" href="#">Registrarse</a>
+                    </li> -->
+                    <li>
+                        <a onclick="Mostrar('ingresoInvitados')" href="#"><span class="glyphicon glyphicon-pencil"></span>Invitados</a>
                     </li>
                     <li>
-                        <a onclick="Mostrar('ingresoInvitados')" href="#">Ingresar invitados</a>
-                    </li>
-                    <li>
-                        <a onclick="Mostrar('mostrarInvitados')" href="#">Grilla</a>
+                        <a onclick="Mostrar('mostrarInvitados')" href="#"><span class="glyphicon glyphicon-heart"></span>Listado</a>
                     </li>
                 </ul>
             </div>
@@ -111,7 +111,7 @@
                     <br><td><button onclick="VerEnMapa('Buenos Aires','Avenida Bartolome Mitre 750','Avellaneda')" class="btn btn-info">Ver en Mapa</td> 
                 </address>
                 <address>
-                    <abbr title="Email">E-mail:</abbr> <a href="mailto:contacto@arcejennifer.tuars.com">contacto@arcejennifer.tuars.com</a>
+                    <abbr title="Email"><span class="glyphicon glyphicon-envelope"></abbr> <a href="mailto:contacto@arcejennifer.tuars.com">contacto@arcejennifer.tuars.com</a>
                 </address>
 
                  <h4 class="widgettitle">informe </h4>

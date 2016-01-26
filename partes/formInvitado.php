@@ -38,6 +38,6 @@ if(isset($_SESSION['registrado'])){  ?>
 
     </div> <!-- /container -->
 
-  <?php }else{    echo"<h3>usted no esta logeado. </h3>";?>         
+  <?php }else{    echo"<h4>Para acceder, ingrese a su cuenta. </h4>";?>         
    
   <?php  }  ?>

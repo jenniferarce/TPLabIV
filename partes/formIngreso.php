@@ -40,7 +40,7 @@ if(!isset($_SESSION['registrado'])){  ?>  <!-- REVIASR Y ARREGLAR SI ANDA!!!!! -
               </label>
               </div>
 
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
+            <button class="btn btn-lg btn-primary btn-block" type="submit"><span class="glyphicon glyphicon-play"></span>Ingresar</button>
             </form>
             </div> <!-- LOGIN -->
             
@@ -61,7 +61,7 @@ if(!isset($_SESSION['registrado'])){  ?>  <!-- REVIASR Y ARREGLAR SI ANDA!!!!! -
             <img  class="fotoform" id="foto">
             <p style="  color: black;" > *La foto se actualiza al guardar.</p> <!--VER!!! --> 
 
-            <button class="btn btn-lg btn-success btn-block" type="submit">Registrarme</button>
+            <button class="btn btn-lg btn-success btn-block" type="submit"><span class="glyphicon glyphicon-asterisk"></span>Registrarme</button>
             </form>
             </div> <!-- REGISTRO -->
           

@@ -1,11 +1,15 @@
 function GuardarCliente()
 {
+	alert("se ingresa a guardar");
 		var id=$("#id").val();
 		var usuario=$("#usuario").val();
 		var clave=$("#clave").val();
 		var nombre=$("#nombre").val();
 		var telefono=$("#telefono").val();
 		var email=$("#email").val();
+		var provincia=$("#provincia").val();
+		var direccion=$("#direccion").val();
+		var localidad=$("#localidad").val();
 		//var sexo=$("input[name='sexo']:checked").val();
 
 		var funcionAjax=$.ajax({
@@ -19,9 +23,13 @@ function GuardarCliente()
 			nombre:nombre,
 			telefono:telefono,
 			email:email,
+			provincia:provincia,
+			direccion:direccion,
+			localidad:localidad
 		}
 	});
 	funcionAjax.done(function(retorno){
+		alert(retorno);
 		alert("Se registro correctamente!!");
 		Mostrar('mostrarlogin');
 		$("#informe").html("cantidad de agregados "+ retorno);

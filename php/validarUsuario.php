@@ -17,7 +17,7 @@ if(cliente::validarCliente($_POST['usuario'],$_POST['clave'])
 		setcookie("registro",$usuario,  time()-36000 , '/');
 		
 	}
-	$_SESSION['registrado']=$usuario;
+	$_SESSION['registrado']=$_POST['usuario'];
 
 	$retorno="ingreso";
 }else

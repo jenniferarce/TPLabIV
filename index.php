@@ -62,9 +62,9 @@
                     <li>
                         <a onclick="Mostrar('mostrarlogin')" href="#"><span class="glyphicon glyphicon-user"></span>Cuenta</a>
                     </li>
-                   <!-- <li>
+                    <li>
                         <a onclick="Mostrar('mostrarregistro')" href="#">Registrarse</a>
-                    </li> -->
+                    </li>
                     <li>
                         <a onclick="Mostrar('ingresoInvitados')" href="#"><span class="glyphicon glyphicon-pencil"></span>Invitados</a>
                     </li>
@@ -150,6 +150,9 @@
                 <div class="col-lg-12">
                     <p align="center"><img src="components/images/logo1.png"></p>
                     <p align="center">Copyright &copy; 2015 - 2016</p>
+                    <p> 
+                        
+                    </p>
                 </div>
             </div>
             <!-- /.row -->

@@ -7,16 +7,22 @@ class cliente
 	public $nombre;
 	public $telefono;
 	public $email;
+	public $provincia;
+	public $direccion;
+	public $localidad; 
 
-	 public function GuardarCliente()
+	 public function InsertarCliente()
 	 {
 				$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-				$consulta =$objetoAccesoDato->RetornarConsulta("CALL InsertarCliente(:usuario,:clave,:nombre,:telefono,:email)");
+				$consulta =$objetoAccesoDato->RetornarConsulta("CALL InsertarCliente(:usuario,:clave,:nombre,:telefono,:email,:provincia,:direccion,:localidad)");
 				$consulta->bindvalue(':usuario',$this->usuario,PDO::PARAM_STR);
 				$consulta->bindValue(':clave',$this->clave, PDO::PARAM_STR);
 				$consulta->bindValue(':nombre',$this->nombre, PDO::PARAM_STR);
 				$consulta->bindValue(':telefono',$this->telefono, PDO::PARAM_INT);
 				$consulta->bindValue(':email', $this->email, PDO::PARAM_STR);
+				$consulta->bindValue(':provincia',$this->provincia, PDO::PARAM_STR);
+				$consulta->bindValue(':direccion',$this->direccion, PDO::PARAM_STR);
+				$consulta->bindValue(':localidad',$this->localidad, PDO::PARAM_STR);
 
 				$consulta->execute();		
 				return $objetoAccesoDato->RetornarUltimoIdInsertado();
@@ -28,16 +34,20 @@ class cliente
 				$consulta->bindValue(':id',$this->id, PDO::PARAM_INT);		
 				$consulta->execute();
 				return $consulta->rowCount();
-	 } 
+	 } */
 	 public function ModificarCliente()
 	 {
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("CALL ModificarCliente(:usuario,:clave,:nombre,:telefono,:email,,:id)");
+			$consulta =$objetoAccesoDato->RetornarConsulta("CALL ModificarCliente(:usuario,:clave,:nombre,:telefono,:email,:provincia,:direccion,:localidad,:id)");
 			$consulta->bindvalue(':usuario',$this->usuario,PDO::PARAM_STR);
 			$consulta->bindValue(':clave',$this->clave, PDO::PARAM_STR);
 			$consulta->bindValue(':nombre',$this->nombre, PDO::PARAM_STR);
 			$consulta->bindValue(':telefono',$this->telefono, PDO::PARAM_INT);
 			$consulta->bindValue(':email',$this->email, PDO::PARAM_STR);
+			$consulta->bindValue(':provincia',$this->provincia, PDO::PARAM_STR);
+			$consulta->bindValue(':direccion',$this->direccion, PDO::PARAM_STR);
+			$consulta->bindValue(':localidad',$this->localidad, PDO::PARAM_STR);
+
 			$consulta->bindValue(':id',$this->id, PDO::PARAM_INT);
 			return $consulta->execute();
 			return $objetoAccesoDato->RetornarUltimoIdInsertado();
@@ -54,7 +64,7 @@ class cliente
 	 		}
 
 	 }
-	
+	/*
 	public static function TraerClientes()
 	{
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
@@ -72,8 +82,8 @@ class cliente
 			$buscado= $consulta->fetchObject('cliente');
 			return $buscado;			
 
-	}*/
-	public function validarCliente($usuario,$clave)
+	} */
+	public static function validarCliente($usuario,$clave)
 	{
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 		$consulta=$objetoAccesoDato->RetornarConsulta("CALL validarCliente(:usuario,:clave)");
@@ -83,7 +93,7 @@ class cliente
 		$buscado=$consulta->fetchObject('cliente');
 		return $buscado;
 	}
-	public function validarRegistro($usuario)
+	public static function validarRegistro($usuario)
 	{
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 		$consulta=$objetoAccesoDato->RetornarConsulta("CALL validarRegistro(:usuario)");

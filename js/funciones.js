@@ -31,17 +31,17 @@ function Mostrar(quemostrar)
 	});	
 }
 
-/*
-function MostarBotones()
+
+function MostrarBotones()
 {		//alert(queMostrar);
 	var funcionAjax=$.ajax({
 		url:"nexo.php",
 		type:"post",
-		data:{queHacer:"MostarBotones"}
+		data:{queHacer:"MostrarBotones"}
 	});
 	funcionAjax.done(function(retorno){
 		//$("#botonesABM").html(retorno);
 		//$("#informe").html("Correcto BOTONES!!!");	
 	});
-}//fin MostarBotones*/
+}//fin MostarBotones
 

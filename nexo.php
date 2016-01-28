@@ -32,6 +32,16 @@ switch ($queHago) {
 			$cliente->nombre=$_POST['nombre'];
 			$cliente->telefono=$_POST['telefono'];
 			$cliente->email=$_POST['email'];
+			$cliente->provincia=$_POST['provincia'];
+			$cliente->direccion=$_POST['direccion'];
+			$cliente->localidad=$_POST['localidad'];
+			/*}
+			else
+			{
+				$cliente->provincia=null;
+				$cliente->direccion=null;
+				$cliente->localidad=null;
+			}*/
 			
 			$cantidad=$cliente->GuardarCliente();
 			echo $cantidad;
@@ -42,9 +52,6 @@ switch ($queHago) {
 			$cliente->id=$_POST['id'];
 			$invitado->nom=$_POST['nom'];
 			$invitado->dni=$_POST['dni'];
-			$invitado->provincia=$_POST['provincia'];
-			$invitado->localidad=$_POST['localidad'];
-			$invitado->direccion=$_POST['direccion'];
 			$invitado->pariente=$_POST['pariente'];
 			$invitado->nromesa=$_POST['nromesa'];
 			
@@ -63,6 +70,9 @@ switch ($queHago) {
 	break;
 	case 'VerEnMapa':
 		include('partes/formMapaGoogle.php');
+		break;
+	case 'MostrarBotones':
+		include("partes/botonesABM.php");
 		break;
 	default:
 		# code...

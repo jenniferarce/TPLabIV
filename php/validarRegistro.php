@@ -2,7 +2,7 @@
 session_start();
 $usuario=$_POST['usuario'];
 $clave=$_POST['clave'];
-$recordar=$_POST['recordarme'];
+$guardardir=$_POST['guardardir'];
 
 $retorno;
 if(!cliente::validarRegistro($_POST['usuario'])

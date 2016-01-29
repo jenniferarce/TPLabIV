@@ -8,7 +8,7 @@ session_start();
 if(!isset($_SESSION['registrado'])){  ?>
     <div id="formRegistro" class="container" align="center"> <!-- "col-sm-4" -->
             <!-- REVISAR -->
-      <form class="form-ingreso" onsubmit="validarRegistro();returnfalse;" style="background-color:transparent;"> <!--"validarRegistro();return false;"> -->
+      <form class="form-ingreso" onsubmit="validarRegistro();returnfalse;" style="background-color:transparent;" method="post"> <!--"validarRegistro();return false;"> -->
           <h3 class="form-ingreso-heading">Ingrese sus datos</h3>
             <input type="text" id="usuario" name="usuario" class="form-control" placeholder="Usuario" title="Ingrese su nombre de usuario" required autofocus><br>
             <input type="password" id="clave" name="clave" class="form-control" placeholder="Contraseña" title="Ingrese su contraseña" required><br>
@@ -20,7 +20,7 @@ if(!isset($_SESSION['registrado'])){  ?>
                 <input type="checkbox" id="guardardir" checked> Ingresar direccion particular
               </label>
               </div> -->
-              <select id="provincia" class="form-control" name="provincia" title="Seleccione una provincia" optional>
+              <select id="provincia" name="provincia" class="form-control" title="Seleccione una provincia" optional>
                 <option value="Buenos Aires">Buenos Aires</option>
                 <option value="Mendoza">Mendoza</option>
                 <option value="Santa Fe">Santa Fe</option>

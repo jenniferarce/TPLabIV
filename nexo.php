@@ -35,13 +35,6 @@ switch ($queHago) {
 			$cliente->provincia=$_POST['provincia'];
 			$cliente->direccion=$_POST['direccion'];
 			$cliente->localidad=$_POST['localidad'];
-			/*}
-			else
-			{
-				$cliente->provincia=null;
-				$cliente->direccion=null;
-				$cliente->localidad=null;
-			}*/
 			
 			$cantidad=$cliente->GuardarCliente();
 			echo $cantidad;

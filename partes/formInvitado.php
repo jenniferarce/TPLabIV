@@ -6,7 +6,7 @@ session_start();
 if(isset($_SESSION['registrado'])){  ?>
     <div id="formInvitado" class="container">
 
-      <form class="form-ingreso" onsubmit="GuardarInvitado();return false">
+      <form class="form-ingreso" onsubmit="GuardarInvitado();return false" style="background-color:transparent;" method="post">
         <h2 class="form-ingreso-heading">Datos del invitado</h2>
         <!-- REVISAR-->
     

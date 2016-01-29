@@ -1,12 +1,14 @@
 <?php 
+require_once("../clases/AccesoDatos.php");
+require_once("../clases/cliente.php");
 session_start();
 $usuario=$_POST['usuario'];
 $clave=$_POST['clave'];
 //recordar=$_POST['recordarme'];
 
 $retorno;
-//if(cliente::validarCliente($_POST['usuario'],$_POST['clave']))
-if($_POST['usuario']=="jenn" && $_POST['clave']=="1234"))
+if(cliente::validarCliente($_POST['usuario'],$_POST['clave']) )
+//if($_POST['usuario']=="jenn" && $_POST['clave']=="1234")
 {
 	/*if($recordar=="true")
 	{

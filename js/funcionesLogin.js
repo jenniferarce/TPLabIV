@@ -1,7 +1,7 @@
 function validarLogin()
 {
-	alert("hola");
-	/*alert("se esta validando");
+	//alert("hola");
+	//alert("se esta validando");
 		var varUsuario=$("#usuario").val();
 		var varClave=$("#clave").val();
 		//var recordar=$("#recordarme").is(':checked');
@@ -33,10 +33,10 @@ function validarLogin()
 	});
 	funcionAjax.fail(function(retorno){
 
-	});*/
+	});
 }//fin validarLogin
 
-function validarRegistro()
+/*function validarRegistro()
 {
 		var varUsuario=$("#usuario").val();
 		alert("registrando");
@@ -61,7 +61,39 @@ function validarRegistro()
 	funcionAjax.fail(function(retorno){
 
 	});
+}//fin validarRegistro*/
+
+
+function validarRegistro() //REVISAR
+{
+	var varUsuario=$("#usuario").val();
+
+	var funcionAjax=$.ajax({
+		url:"php/validarRegistro.php",
+		type:"post",
+		data:{
+			usuario:varUsuario}
+		});
+	funcionAjax.done(function(retorno){
+		if(retorno=="esta"){
+			Mostrar('mostrarregistro');
+			alert("el usuario no se encuentra disponible");
+			$("#usuario").html(retorno);
+		}
+		else{
+			GuardarCliente();
+		}
+	});
+	funcionAjax.fail(function(retorno){
+
+	});
+
 }//fin validarRegistro
+
+
+
+
+
 
 function deslogear()
 {	

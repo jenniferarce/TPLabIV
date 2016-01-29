@@ -1,6 +1,5 @@
 function GuardarCliente()
 {
-	alert("se ingresa a guardar");
 		var id=$("#id").val();
 		var usuario=$("#usuario").val();
 		var clave=$("#clave").val();
@@ -11,7 +10,7 @@ function GuardarCliente()
 		var direccion=$("#direccion").val();
 		var localidad=$("#localidad").val();
 		//var sexo=$("input[name='sexo']:checked").val();
-
+		alert(id);
 		var funcionAjax=$.ajax({
 		url:"nexo.php",
 		type:"post",
@@ -27,6 +26,7 @@ function GuardarCliente()
 			direccion:direccion,
 			localidad:localidad
 		}
+		alert(usuario);
 	});
 	funcionAjax.done(function(retorno){
 		alert(retorno);
@@ -35,6 +35,7 @@ function GuardarCliente()
 		$("#informe").html("cantidad de agregados "+ retorno);
 	});
 	funcionAjax.fail(function(retorno){	
+		alert(retorno);
 		$("#informe").html(retorno.responseText);	
 	});	
 }//fin GuardarCliente
@@ -46,8 +47,6 @@ function GuardarInvitado() //VALIDAR EXISTENCIA
 		var id=$("#id").val();//de cliente
 		var nom=$("#nom").val();
 		var dni=$("#dni").val();
-		var localidad=$("#localidad").val();
-		var direccion=$("#direccion").val();
 		var pariente=$("#pariente").val();
 		var nromesa=$("input[name='nromesa']:checked").val();
 

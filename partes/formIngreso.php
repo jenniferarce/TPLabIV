@@ -7,7 +7,7 @@
 session_start();
 if(!isset($_SESSION['registrado']) ) {  ?>  <!-- REVIASR Y ARREGLAR SI ANDA!!!!! -->
   <div id="formLogin" class="container" align="center">
-    <form class="form-ingreso" onsubmit="validarLogin();return false;" style="background-color:transparent;">
+    <form class="form-ingreso" onsubmit="validarLogin();return false;" style="background-color:transparent;" method="post">
         <h3 class="form-ingreso-heading">Ingrese su cuenta</h3>
         <input type="text" id="usuario" name="usuario" class="form-control" title="Ingrese su nombre de usuario" placeholder="Usuario" required autofocus>
         <br> <!-- value="<?php // if(isset($_COOKIE["registro"])){echo $_COOKIE["registro"];}?>" -->

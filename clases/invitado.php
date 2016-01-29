@@ -14,7 +14,7 @@ class invitado
 	 	require_once("cliente.php");
 
 				$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-				$consulta =$objetoAccesoDato->RetornarConsulta("CALL InsertarInvitado(:id,:nom,:dni,:pariente,:nromesa,)");
+				$consulta =$objetoAccesoDato->RetornarConsulta("CALL InsertarInvitado(:id,:nom,:dni,:pariente,:nromesa)");
 				$consulta->bindValue(':id',$this->id, PDO::PARAM_STR); //VER
 				$consulta->bindValue(':nom',$this->nom, PDO::PARAM_STR);
 				$consulta->bindValue(':dni',$this->dni, PDO::PARAM_INT);

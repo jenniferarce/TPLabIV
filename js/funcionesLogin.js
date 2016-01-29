@@ -1,6 +1,7 @@
 function validarLogin()
 {
-	alert("se esta validando");
+	alert("hola");
+	/*alert("se esta validando");
 		var varUsuario=$("#usuario").val();
 		var varClave=$("#clave").val();
 		//var recordar=$("#recordarme").is(':checked');
@@ -32,7 +33,7 @@ function validarLogin()
 	});
 	funcionAjax.fail(function(retorno){
 
-	});
+	});*/
 }//fin validarLogin
 
 function validarRegistro()

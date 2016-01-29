@@ -66,7 +66,7 @@
                         <a onclick="Mostrar('mostrarregistro')" href="#">Registrarse</a>
                     </li>
                     <li>
-                        <a onclick="Mostrar('ingresoInvitados')" href="#"><span class="glyphicon glyphicon-pencil"></span>Invitados</a>
+                        <a onclick="Mostrar('ingresoInvitados')" href="#">Invitados</a>
                     </li>
                     <li>
                         <a onclick="Mostrar('mostrarInvitados')" href="#"><span class="glyphicon glyphicon-heart"></span>Listado</a>

@@ -10,7 +10,6 @@ function GuardarCliente()
 		var direccion=$("#direccion").val();
 		var localidad=$("#localidad").val();
 		//var sexo=$("input[name='sexo']:checked").val();
-		alert(id);
 		var funcionAjax=$.ajax({
 		url:"nexo.php",
 		type:"post",
@@ -26,10 +25,9 @@ function GuardarCliente()
 			direccion:direccion,
 			localidad:localidad
 		}
-		alert(usuario);
+
 	});
 	funcionAjax.done(function(retorno){
-		alert(retorno);
 		alert("Se registro correctamente!!");
 		Mostrar('mostrarlogin');
 		$("#informe").html("cantidad de agregados "+ retorno);

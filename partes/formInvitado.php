@@ -10,7 +10,7 @@ if(isset($_SESSION['registrado'])){  ?>
         <h2 class="form-ingreso-heading">Datos del invitado</h2>
         <!-- REVISAR-->
     
-        <input type="text"  maxlength="20"  id="nom" title="Se necesita un nombre" plaeholder="Nombre" class="form-control" required autofocus><br>
+        <input type="text"  maxlength="20"  id="nom" title="Se necesita un nombre" placeholder="Nombre y apellido" class="form-control" required autofocus><br>
         <input type="number" id="dni" class="form-control" placeholder="DNI" title="Ingrese DNI sin puntos." min="1000000" max="99999999" required><br>
         <!--<input type="text" maxlength ="30" id="pariente" title="Ingrese su parentezco" placeholder="Parentezco" class="form-control" optional><br>-->
         <select id="pariente" class="form-control" title="Seleccione un parentezco"> 
@@ -24,10 +24,10 @@ if(isset($_SESSION['registrado'])){  ?>
             <option value="amigo-a">Amigo/a</option>
             <option value="otro">Otro</option>
         </select><br>
-        <input type="radio" name="nromesa" id="nromesa" value="1" required>Mesa-1
-        <input type="radio" name="nromesa" id="nromesa" value="2" required>Mesa-2
-        <input type="radio" name="nromesa" id="nromesa" value="3" required>Mesa-3
-        <input type="radio" name="nromesa" id="nromesa" value="4" required>Mesa-4<br>
+        <input type="radio" name="nromesa" id="nromesa" value="m1" required>Mesa-1
+        <input type="radio" name="nromesa" id="nromesa" value="m2" required>Mesa-2
+        <input type="radio" name="nromesa" id="nromesa" value="m3" required>Mesa-3
+        <input type="radio" name="nromesa" id="nromesa" value="m4" required>Mesa-4<br>
         
         <input readonly   type="hidden"    id="idd" class="form-control">
         <input readonly   type="hidden"    id="id" class="form-control" value="<?php echo $_SESSION['registrado'];?>"> <!--VER-->

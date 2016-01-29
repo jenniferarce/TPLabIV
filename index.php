@@ -33,7 +33,7 @@
     <script type="text/javascript" src="js/funciones.js"></script>
     <script type="text/javascript" src="js/funcionesABM.js"></script>
     <script type="text/javascript" src="js/funcionesLogin.js"></script>
-    <script type="text/javascript" src="js/funcionesRegistro.js"></script>
+ <!--   <script type="text/javascript" src="js/funcionesRegistro.js"></script> -->
     <script type="text/javascript" src="js/funcionesMapa.js"></script>
     <script type="text/javascript" src="js/geolocalizacionCommon.js"></script>
     <script type="text/javascript" src="js/moduloGeolocalizacion.js"></script>

@@ -1,7 +1,5 @@
 function validarLogin()
 {
-	//alert("hola");
-	//alert("se esta validando");
 		var varUsuario=$("#usuario").val();
 		var varClave=$("#clave").val();
 		//var recordar=$("#recordarme").is(':checked');
@@ -23,7 +21,6 @@ function validarLogin()
 			$("#usuario").html(retorno);
 		}
 		else{
-			alert("bienvenido");
 			Mostrar('mostrarlogin');
 			MostrarBotones();
 			$("#BotonLogin").html("Ir a salir<br>-Sesión-");
@@ -76,8 +73,8 @@ function validarRegistro() //REVISAR
 		});
 	funcionAjax.done(function(retorno){
 		if(retorno=="esta"){
-			Mostrar('mostrarregistro');
 			alert("el usuario no se encuentra disponible");
+			Mostrar('mostrarregistro');
 			$("#usuario").html(retorno);
 		}
 		else{
@@ -90,11 +87,6 @@ function validarRegistro() //REVISAR
 
 }//fin validarRegistro
 
-
-
-
-
-
 function deslogear()
 {	
 	var funcionAjax=$.ajax({
@@ -102,7 +94,7 @@ function deslogear()
 		type:"post",	
 	});
 	funcionAjax.done(function(retorno){
-			MostarBotones();
+			MostrarBotones();
 			Mostrar('mostrarlogin');
 			$("#usuario").val("Sin usuario.");
 			$("#BotonLogin").html("Login<br>-Sesión-");

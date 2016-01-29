@@ -19,7 +19,7 @@ if(!isset($_SESSION['registrado']) ) {  ?>  <!-- REVIASR Y ARREGLAR SI ANDA!!!!!
            </div> -->
            <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button> <!-- <span class="glyphicon glyphicon-play"></span>-->
     </form>
-  </div> <!-- LOGIN -->
+  </div> 
 
   <?php }
 

@@ -15,12 +15,8 @@ if(!isset($_SESSION['registrado'])){  ?>
             <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre y Apellido" title="Ingrese su nombre y apellido" required><br>
             <input type="email" id="email" name="email" class="form-control" title="Ingrese un correo valido" placeholder="example@example.com" required><br>
             <input type="tel" id="telefono" name="telefono" class="form-control" placeholder="Telefono" title="Ingrese su numero de telefono"><br>
-            <!-- <div class="checkbox">
-              <label>
-                <input type="checkbox" id="guardardir" checked> Ingresar direccion particular
-              </label>
-              </div> -->
               <select id="provincia" name="provincia" class="form-control" title="Seleccione una provincia" optional>
+                <option value=null> </option>
                 <option value="Buenos Aires">Buenos Aires</option>
                 <option value="Mendoza">Mendoza</option>
                 <option value="Santa Fe">Santa Fe</option>

@@ -9,7 +9,7 @@ function GuardarCliente()
 		var provincia=$("#provincia").val();
 		var direccion=$("#direccion").val();
 		var localidad=$("#localidad").val();
-		//var sexo=$("input[name='sexo']:checked").val();
+		
 		var funcionAjax=$.ajax({
 		url:"nexo.php",
 		type:"post",
@@ -30,7 +30,8 @@ function GuardarCliente()
 	funcionAjax.done(function(retorno){
 		alert("Se registro correctamente!!");
 		Mostrar('mostrarlogin');
-		$("#informe").html("cantidad de agregados "+ retorno);
+		//$("#informe").html("cantidad de agregados "+ retorno);
+		$("#informe").html("Gracias por registrarse!!");
 	});
 	funcionAjax.fail(function(retorno){	
 		alert(retorno);

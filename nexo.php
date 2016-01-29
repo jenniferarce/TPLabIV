@@ -28,7 +28,7 @@ switch ($queHago) {
 			$cliente = new cliente();
 			$cliente->id=$_POST['id'];
 			$cliente->usuario=$_POST['usuario'];
-			$cliente->clave=$_POST['clave'];
+			$cliente->clave=md5($_POST['clave']);
 			$cliente->nombre=$_POST['nombre'];
 			$cliente->telefono=$_POST['telefono'];
 			$cliente->email=$_POST['email'];

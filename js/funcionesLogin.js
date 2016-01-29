@@ -13,10 +13,9 @@ function validarLogin()
 			clave:varClave}
 		});
 	funcionAjax.done(function(retorno){
-		alert(retorno);
 		if(retorno=="No-esta"){
 
-			$("#informe").html("usuario o clave incorrecta");	
+			$("#informe").html("Usuario o clave incorrecta");	
 			$("#formLogin").addClass("animated bounceInLeft");
 			$("#usuario").html(retorno);
 		}
@@ -33,34 +32,6 @@ function validarLogin()
 	});
 }//fin validarLogin
 
-/*function validarRegistro()
-{
-		var varUsuario=$("#usuario").val();
-		alert("registrando");
-	var funcionAjax=$.ajax({
-		url:"php/validarRegistro.php",
-		type:"post",
-		data:{
-			usuario:varUsuario}
-		});
-	funcionAjax.done(function(retorno){
-		alert(retorno);
-		if(retorno=="esta"){
-			alert("este usuario ya esta en uso");
-			Mostrar('mostrarregistro');
-			$("#usuario").html(retorno);
-		}
-		else{
-			alert(retorno);
-			GuardarCliente();
-		}
-	});
-	funcionAjax.fail(function(retorno){
-
-	});
-}//fin validarRegistro*/
-
-
 function validarRegistro() //REVISAR
 {
 	var varUsuario=$("#usuario").val();
@@ -73,7 +44,7 @@ function validarRegistro() //REVISAR
 		});
 	funcionAjax.done(function(retorno){
 		if(retorno=="esta"){
-			alert("el usuario no se encuentra disponible");
+			alert("El usuario no se encuentra disponible");
 			Mostrar('mostrarregistro');
 			$("#usuario").html(retorno);
 		}

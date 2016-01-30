@@ -42,24 +42,22 @@ function GuardarCliente()
 function GuardarInvitado() //VALIDAR EXISTENCIA
 {
 		//HACER CAMBIOS!!!
-		var idd=$("#idd").val();
+		//var idd=$("#idd").val();
 		var id=$("#id").val();//de cliente
-		var nom=$("#nom").val();
 		var dni=$("#dni").val();
+		var nomyape=$("#nomyape").val();
 		var pariente=$("#pariente").val();
 		var nromesa=$("input[name='nromesa']:checked").val();
-
+		alert(id);
 		var funcionAjax=$.ajax({
 		url:"nexo.php",
 		type:"post",
 		data:{
 			queHacer:"GuardarInvitado",
-			idd:idd,
+			//idd:idd,
 			id:id,
-			nom:nom,
 			dni:dni,
-			localidad:localidad,
-			direccion:direccion,
+			nomyape:nomyape,
 			pariente:pariente,
 			nromesa:nromesa
 		}
@@ -75,7 +73,7 @@ function GuardarInvitado() //VALIDAR EXISTENCIA
 }//fin GuardarVoto
 
 
-function BorrarInvitado(idParametro)
+/*function BorrarInvitado(idParametro)
 {
 	//alert(idParametro);
 		var funcionAjax=$.ajax({
@@ -111,7 +109,7 @@ function EditarInvitado(idParametro)
 		var invitado =JSON.parse(retorno);
 		//alert(retorno);
 		$("#idd").val(invitado.idd);
-		$("#nom").val(invitado.nom);
+		$("#nomyape").val(invitado.nomyape);
 		$("#dni").val(invitado.dni);
 		$("#provincia").val(invitado.provincia)
 		$("#direccion").val(invitado.direccion);
@@ -142,4 +140,4 @@ function EditarInvitado(idParametro)
 		alert("error");		
 	});	
 	
-}//fin EditarInvitado
+}//fin EditarInvitado */

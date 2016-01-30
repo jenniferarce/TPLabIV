@@ -103,5 +103,15 @@ class cliente
 		return $buscado;
 	}
 
+	public static function retornoID($usuario)
+	{
+		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+		$consulta=$objetoAccesoDato->RetornarConsulta("CALL retornoID(:usuario)");
+		$consulta->bindvalue(':usuario',$usuario,PDO::PARAM_STR);
+		$consulta->execute();
+		$buscado=$consulta->fetchObject('cliente');
+		return $buscado;
+	}
+
 }
 ?>

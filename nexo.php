@@ -40,27 +40,28 @@ switch ($queHago) {
 			echo $cantidad;
 	break;
 	case 'GuardarInvitado':
+	session_start();
 			$invitado = new invitado();
-			$invitado->id=$_POST['idd'];
-			$cliente->id=$_POST['id'];
-			$invitado->nom=$_POST['nom'];
+			//$invitado->id=$_POST['idd'];
+			$invitado->id=cliente::retornoID($_SESSION['registrado']);//$_POST['id'];//de cliente
 			$invitado->dni=$_POST['dni'];
+			$invitado->nomyape=$_POST['nomyape'];
 			$invitado->pariente=$_POST['pariente'];
 			$invitado->nromesa=$_POST['nromesa'];
 			
 			$cantidad=$invitado->GuardarInvitado();
 			echo $cantidad;
 	break;
-	case 'TraerInvitados':
+	/*case 'TraerInvitados':
 			//$invitado = invitado::TraerUninvitado($_POST['id']);	
-			$invitado=invitado::TraerInvitados();	
-			echo json_encode($invitado) ;
+			$invitado=invitado::TraerInvitados(cliente::retornoID($_POST['usuario']));	
+			echo json_encode($invitado);
 
 	break;
 	case 'TraerInvitadosId':
 		$invitado = invitado::TraerInvitadosId($_POST['id']);	 
 		echo json_encode($invitado);
-	break;
+	break;*/
 	case 'VerEnMapa':
 		include('partes/formMapaGoogle.php');
 		break;

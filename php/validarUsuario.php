@@ -7,6 +7,7 @@ $clave = md5($_POST['clave']);
 //recordar=$_POST['recordarme'];
 
 $retorno;
+$idonline;
 if(cliente::validarCliente($_POST['usuario'],md5($_POST['clave'])) )
 {
 	/*if($recordar=="true")
@@ -18,8 +19,8 @@ if(cliente::validarCliente($_POST['usuario'],md5($_POST['clave'])) )
 		setcookie("registro",$usuario,  time()-36000 , '/');
 		
 	}*/
+	//setcookie("idonline",cliente::retornoID($_SESSION['registrado']);
 	$_SESSION['registrado']=$usuario;
-
 	$retorno="ingreso";
 }else
 {

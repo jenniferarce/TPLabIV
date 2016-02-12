@@ -42,20 +42,19 @@ function GuardarCliente()
 function GuardarInvitado() //VALIDAR EXISTENCIA
 {
 		//HACER CAMBIOS!!!
-		//var idd=$("#idd").val();
-		var id=$("#id").val();//de cliente
+		var user=$("#user").val();
+		//var id=$("#id").val();//de cliente
 		var dni=$("#dni").val();
 		var nomyape=$("#nomyape").val();
 		var pariente=$("#pariente").val();
 		var nromesa=$("input[name='nromesa']:checked").val();
-		alert(id);
 		var funcionAjax=$.ajax({
 		url:"nexo.php",
 		type:"post",
 		data:{
 			queHacer:"GuardarInvitado",
-			//idd:idd,
-			id:id,
+			user:user,
+			//id:id,
 			dni:dni,
 			nomyape:nomyape,
 			pariente:pariente,
@@ -63,7 +62,7 @@ function GuardarInvitado() //VALIDAR EXISTENCIA
 		}
 	});
 	funcionAjax.done(function(retorno){
-		alert("Se guardo el invitado");
+		alert("Se guardo el invitado!");
 		Mostrar('mostrarInvitados');
 		$("#informe").html("cantidad de agregados "+ retorno);
 	});
@@ -73,18 +72,20 @@ function GuardarInvitado() //VALIDAR EXISTENCIA
 }//fin GuardarVoto
 
 
-/*function BorrarInvitado(idParametro)
+function BorrarInvitado(dniParametro)
 {
-	//alert(idParametro);
+	//alert(dniParametro);
+
 		var funcionAjax=$.ajax({
 		url:"nexo.php",
 		type:"post",
 		data:{
 			queHacer:"BorrarInvitado",
-			id:idParametro	
+			dni:dniParametro
 		}
 	});
 	funcionAjax.done(function(retorno){
+		alert("Se elimino el invitado");
 		Mostrar('mostrarInvitados');
 		$("#informe").html("cantidad de eliminados "+ retorno);		
 	});
@@ -93,7 +94,7 @@ function GuardarInvitado() //VALIDAR EXISTENCIA
 	});	
 }//fin BorrarInvitado
 
-function EditarInvitado(idParametro)
+/*function EditarInvitado(idParametro)
 {
 	votacion();
 	var funcionAjax=$.ajax({

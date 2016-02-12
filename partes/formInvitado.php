@@ -29,7 +29,7 @@ if(isset($_SESSION['registrado'])){?>
         
         <!-- <input readonly type="hidden" id="id" class="form-control"> -->
         <!-- <input readonly type="hidden" id="id" class="form-control" value="<?php //echo $_SESSION['registrado']; ?>"> -->
-        <input readonly type="hidden" id="id" class="form-control" value="<?php echo  intval(cliente::retornoID($_SESSION['registrado'])); ?>"> <!--VER-->
+        <input readonly type="hidden" id="user" class="form-control" value="<?php echo $_SESSION['registrado']; ?>"><!-- "<?php //echo  intval(cliente::retornoID($_SESSION['registrado'])); ?>"> --> <!--VER-->
         
         <button  class="btn btn-lg btn-success btn-block" type="submit"><span class="glyphicon glyphicon-floppy-save">&nbsp;&nbsp;</span>Guardar </button>
      

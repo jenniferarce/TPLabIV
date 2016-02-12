@@ -2,7 +2,8 @@
 class invitado
 {
 	
-	public $id; //de cliente
+	//public $id; //de cliente
+	public $user;
 	public $dni;
 	public $nomyape;
 	public $pariente;
@@ -13,25 +14,24 @@ class invitado
 	 	
 	 			//require_once("cliente.php");
 				$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-				$consulta =$objetoAccesoDato->RetornarConsulta("CALL InsertarInvitado(:id,:dni,:nomyape,:pariente,:nromesa)");
-				$consulta->bindValue(':id',$this->id, PDO::PARAM_INT); //VER
+				$consulta =$objetoAccesoDato->RetornarConsulta("CALL InsertarInvitado(:user,:dni,:nomyape,:pariente,:nromesa)");
+				$consulta->bindValue(':user',$this->user, PDO::PARAM_STR); //VER
 				$consulta->bindValue(':dni',$this->dni, PDO::PARAM_INT);
 				$consulta->bindValue(':nomyape',$this->nomyape, PDO::PARAM_STR);
 				$consulta->bindvalue(':pariente',$this->pariente,PDO::PARAM_STR);
 				$consulta->bindValue(':nromesa',$this->nromesa, PDO::PARAM_INT);
-
 				$consulta->execute();		
 				return $objetoAccesoDato->RetornarUltimoIdInsertado();
 	 }
-	/*public function BorrarInvitado()
+	public function BorrarInvitado()
 	 {
 	 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("CALL BorrarInvitado(:idd)");	
-				$consulta->bindValue(':idd',$this->idd, PDO::PARAM_INT);		
+			$consulta =$objetoAccesoDato->RetornarConsulta("CALL BorrarInvitado(:dni)");	
+				$consulta->bindValue(':dni',$this->dni, PDO::PARAM_INT);		
 				$consulta->execute();
 				return $consulta->rowCount();
 	 } 
-	 public function ModificarInvitado()
+	 /*public function ModificarInvitado()
 	 {
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 			$consulta =$objetoAccesoDato->RetornarConsulta("CALL ModificarInvitado(:nomyape,:dni,:pariente,:nromesa,:idd)");
@@ -56,11 +56,11 @@ class invitado
 
 	 }
 	
-	public static function TraerInvitados($id) //VER
+	public static function TraerInvitados($user) //VER
 	{
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("CALL TraerInvitados(:id)");
-			$consulta->bindvalue(':id',$id,PDO::PARAM_INT);
+			$consulta =$objetoAccesoDato->RetornarConsulta("CALL TraerInvitados(:user)");
+			$consulta->bindvalue(':user',$user,PDO::PARAM_STR);
 			$consulta->execute();			
 			return $consulta->fetchAll(PDO::FETCH_CLASS, "invitado");		
 	}

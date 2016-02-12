@@ -20,7 +20,7 @@ switch ($queHago) {
 		break;
 	case 'BorrarInvitado':
 			$invitado = new invitado();
-			$invitado->id=$_POST['id'];
+			$invitado->dni=$_POST['dni'];
 			$cantidad=$invitado->BorrarInvitado();
 			echo $cantidad;
 	break;
@@ -43,7 +43,8 @@ switch ($queHago) {
 	session_start();
 			$invitado = new invitado();
 			//$invitado->id=$_POST['idd'];
-			$invitado->id=cliente::retornoID($_SESSION['registrado']);//$_POST['id'];//de cliente
+			$invitado->user=$_SESSION['registrado'];//$_POST['user'];
+			//$invitado->id=cliente::retornoID($_SESSION['registrado']);//$_POST['id'];//de cliente
 			$invitado->dni=$_POST['dni'];
 			$invitado->nomyape=$_POST['nomyape'];
 			$invitado->pariente=$_POST['pariente'];

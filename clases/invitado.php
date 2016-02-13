@@ -31,18 +31,18 @@ class invitado
 				$consulta->execute();
 				return $consulta->rowCount();
 	 } 
-	 /*public function ModificarInvitado()
+	 public function ModificarInvitado()
 	 {
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("CALL ModificarInvitado(:nomyape,:dni,:pariente,:nromesa,:idd)");
-			$consulta->bindValue(':nomyape',$this->nomyape, PDO::PARAM_STR);
+			$consulta =$objetoAccesoDato->RetornarConsulta("CALL ModificarInvitado(:dni,:nomyape,:pariente,:nromesa)");
 			$consulta->bindValue(':dni',$this->dni, PDO::PARAM_INT);
+			$consulta->bindValue(':nomyape',$this->nomyape, PDO::PARAM_STR);
 			$consulta->bindvalue(':pariente',$this->pariente,PDO::PARAM_STR);
-			$consulta->bindValue(':nromesa',$this->nromesa, PDO::PARAM_INT);
-			$consulta->bindValue(':idd',$this->idd, PDO::PARAM_INT);
+			$consulta->bindValue(':nromesa',$this->nromesa, PDO::PARAM_STR);
+			//$consulta->bindValue(':idd',$this->idd, PDO::PARAM_INT);
 			return $consulta->execute();
 			return $objetoAccesoDato->RetornarUltimoIdInsertado();
-	 }*/
+	 }
 
 	public function GuardarInvitado()
 	 {
@@ -65,17 +65,18 @@ class invitado
 			return $consulta->fetchAll(PDO::FETCH_CLASS, "invitado");		
 	}
 
-	/*public static function TraerInvitadoId($idd)  //hacer por DNI
+	public static function TraerInvitadosDNI($dni)  
 	{
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("CALL TraerInvitadoId(:idd)");
-			$consulta->bindvalue(':idd',$idd,PDO::PARAM_INT);
+			$consulta =$objetoAccesoDato->RetornarConsulta("CALL TraerInvitadosDNI(:dni)");
+			$consulta->bindvalue(':dni',$dni,PDO::PARAM_INT);
 			$consulta->execute();
 			$buscado= $consulta->fetchObject('invitado');
 			return $buscado;			
 
 	}
-	public function validarInvitado($dni) 
+	
+	/*public function validarInvitado($dni) 
 	//validar que no exista el dni y que el numero de mesa no sobrepase las 10 personas!!!
 	{
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 

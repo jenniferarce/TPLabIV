@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-02-2016 a las 03:56:41
+-- Tiempo de generación: 13-02-2016 a las 04:53:07
 -- Versión del servidor: 5.6.25
 -- Versión de PHP: 5.6.11
 
@@ -36,6 +36,10 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertarInvitado`(IN `usu` VARCHAR(
     NO SQL
 insert into invitado(user,dni,nomyape,pariente,nromesa) values(usu,ddn,nomm,parr,nm)$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ModificarInvitado`(IN `ddn` INT(10), IN `nya` VARCHAR(50), IN `paa` VARCHAR(50), IN `nrme` VARCHAR(20))
+    NO SQL
+UPDATE invitado set nomyape=nya, pariente=paa, nromesa=nrme WHERE dni=ddn$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `retornoID`(IN `usu` VARCHAR(50))
     NO SQL
 select id from cliente where usuario=usu$$
@@ -43,6 +47,10 @@ select id from cliente where usuario=usu$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `TraerInvitados`(IN `usu` VARCHAR(50))
     NO SQL
 select dni,nomyape,pariente,nromesa from invitado where user=usu$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `TraerInvitadosDNI`(IN `ddn` INT(10))
+    NO SQL
+SELECT dni, nomyape, pariente, nromesa from invitado where dni=ddn$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `validarCliente`(IN `usu` VARCHAR(50), IN `clav` VARCHAR(50))
     NO SQL

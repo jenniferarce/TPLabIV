@@ -24,6 +24,9 @@ switch ($queHago) {
 			$cantidad=$invitado->BorrarInvitado();
 			echo $cantidad;
 	break;
+	case 'ModificarInvitado':
+		include("partes/formModificar.php");
+	break;
 	case 'GuardarCliente':
 			$cliente = new cliente();
 			$cliente->id=$_POST['id'];
@@ -58,11 +61,11 @@ switch ($queHago) {
 			$invitado=invitado::TraerInvitados(cliente::retornoID($_POST['usuario']));	
 			echo json_encode($invitado);
 
-	break;
-	case 'TraerInvitadosId':
-		$invitado = invitado::TraerInvitadosId($_POST['id']);	 
-		echo json_encode($invitado);
 	break;*/
+	case 'TraerInvitadosDNI':
+		$invitado = invitado::TraerInvitadosDNI($_POST['dni']);	 
+		echo json_encode($invitado);
+	break;
 	case 'VerEnMapa':
 		include('partes/formMapaGoogle.php');
 		break;

@@ -94,51 +94,52 @@ function BorrarInvitado(dniParametro)
 	});	
 }//fin BorrarInvitado
 
-/*function EditarInvitado(idParametro)
+function EditarInvitado(dniParametro)
 {
-	votacion();
+	//votacion();
+	Mostrar('ModificarInvitado');//'ingresoInvitados');
 	var funcionAjax=$.ajax({
 		url:"nexo.php",
 		type:"post",
 		data:{
-			queHacer:"TraerInvitadosId",
-			id:idParametro	
+			queHacer:"TraerInvitadosDNI",
+			dni:dniParametro	
 		     }
 	});
 		
 	funcionAjax.done(function(retorno){
 		var invitado =JSON.parse(retorno);
 		//alert(retorno);
-		$("#idd").val(invitado.idd);
-		$("#nomyape").val(invitado.nomyape);
+		//$("#usuario").val(invitado.usuario);
 		$("#dni").val(invitado.dni);
-		$("#provincia").val(invitado.provincia)
-		$("#direccion").val(invitado.direccion);
+		$("#nomyape").val(invitado.nomyape);
 		$("#pariente").val(invitado.pariente);
 		var nromesa = invitado.nromesa;
 
-										if(nromesa=="Mesa-1")
+										if(nromesa=="m1")//"Mesa-1")
 										{
-											$('input[id=nromesa][value="1"]').attr('checked', true); 
+											$('input[id=nromesa][value="m1"]').attr('checked', true); 
 										}
 
-										if(nromesa=="Mesa-2")
+										if(nromesa=="m2")
 										{
-											$('input[id=nromesa][value="2"]').attr('checked', true); 
+											$('input[id=nromesa][value="m2"]').attr('checked', true); 
 										}
-										if(nromesa=="Mesa-3")
+										if(nromesa=="m3")
 										{
-											$('input[id=nromesa][value="3"]').attr('checked', true); 
+											$('input[id=nromesa][value="m3"]').attr('checked', true); 
 										}
 
-										if(nromesa=="Mesa-4")
+										if(nromesa=="m4")
 										{
-											$('input[id=nromesa][value="4"]').attr('checked', true); 
+											$('input[id=nromesa][value="m4"]').attr('checked', true); 
 										}
+
+	//Trae los datos del invitado!!
 	});
 	funcionAjax.fail(function(retorno){	
 		$("#informe").html(retorno.responseText);
 		alert("error");		
 	});	
 	
-}//fin EditarInvitado */
+}//fin EditarInvitado 

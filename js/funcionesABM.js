@@ -69,13 +69,11 @@ function GuardarInvitado() //VALIDAR EXISTENCIA
 	funcionAjax.fail(function(retorno){	
 		$("#informe").html(retorno.responseText);	
 	});	
-}//fin GuardarVoto
+}//fin GuardarInvitado
 
 
 function BorrarInvitado(dniParametro)
 {
-	//alert(dniParametro);
-
 		var funcionAjax=$.ajax({
 		url:"nexo.php",
 		type:"post",
@@ -97,7 +95,7 @@ function BorrarInvitado(dniParametro)
 function EditarInvitado(dniParametro)
 {
 	//votacion();
-	Mostrar('ModificarInvitado');//'ingresoInvitados');
+	Mostrar('EditarInvitado');//'ingresoInvitados');
 	var funcionAjax=$.ajax({
 		url:"nexo.php",
 		type:"post",
@@ -143,3 +141,31 @@ function EditarInvitado(dniParametro)
 	});	
 	
 }//fin EditarInvitado 
+
+
+function ModificarInvitado() //VALIDAR MESA A LA QUE TENGO QUE REUBICAR!
+{
+		var dni=$("#dni").val();
+		var nomyape=$("#nomyape").val();
+		var pariente=$("#pariente").val();
+		var nromesa=$("input[name='nromesa']:checked").val();
+		var funcionAjax=$.ajax({
+		url:"nexo.php",
+		type:"post",
+		data:{
+			queHacer:"ModificarInvitado",
+			dni:dni,
+			nomyape:nomyape,
+			pariente:pariente,
+			nromesa:nromesa
+		}
+	});
+	funcionAjax.done(function(retorno){
+		alert("Se modifico el invitado!");
+		Mostrar('mostrarInvitados');
+		$("#informe").html("Se modifico el invitado: "+ dni);
+	});
+	funcionAjax.fail(function(retorno){	
+		$("#informe").html(retorno.responseText);	
+	});	
+}//fin ModificarInvitado

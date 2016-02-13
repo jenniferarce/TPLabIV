@@ -24,7 +24,7 @@ switch ($queHago) {
 			$cantidad=$invitado->BorrarInvitado();
 			echo $cantidad;
 	break;
-	case 'ModificarInvitado':
+	case 'EditarInvitado':
 		include("partes/formModificar.php");
 	break;
 	case 'GuardarCliente':
@@ -54,6 +54,20 @@ switch ($queHago) {
 			$invitado->nromesa=$_POST['nromesa'];
 			
 			$cantidad=$invitado->GuardarInvitado();
+			echo $cantidad;
+	break;
+	case 'ModificarInvitado':
+	session_start();
+			$invitado = new invitado();
+			//$invitado->id=$_POST['idd'];
+			$invitado->user=$_SESSION['registrado'];//$_POST['user'];
+			//$invitado->id=cliente::retornoID($_SESSION['registrado']);//$_POST['id'];//de cliente
+			$invitado->dni=$_POST['dni'];
+			$invitado->nomyape=$_POST['nomyape'];
+			$invitado->pariente=$_POST['pariente'];
+			$invitado->nromesa=$_POST['nromesa'];
+			
+			$cantidad=$invitado->ModificarInvitado();
 			echo $cantidad;
 	break;
 	/*case 'TraerInvitados':

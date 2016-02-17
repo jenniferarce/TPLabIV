@@ -4,8 +4,20 @@
 session_start();
 
 if(isset($_SESSION['registrado'])){?>
+
+<script type="text/javascript">
+
+/*function revisar()
+{
+    if(formInvitado.nromesa )
+}
+*/
+
+</script>
+
+
     <div id="formInvitado" class="container">
-      <form class="form-ingreso" onsubmit="GuardarInvitado();return false" style="background-color:transparent;" method="post">
+      <form name="formInvitado" class="form-ingreso" onsubmit="GuardarInvitado();return false" style="background-color:transparent;" method="post">
         <h2 class="form-ingreso-heading">Datos del invitado</h2>
         <!-- REVISAR-->
         <input type="number" id="dni" name="dni" class="form-control" placeholder="DNI" title="Ingrese DNI sin puntos." min="1000000" max="99999999" required><br>
@@ -16,7 +28,7 @@ if(isset($_SESSION['registrado'])){?>
             <option value="padre">Padre</option>
             <option value="madre">Madre</option>
             <option value="primo-a">Primo/a</option>
-            <option value="tio-a">Tio/a</option>
+            <option value="tio-a">Tio/a</option> 
             <option value="cuniado-a">Cuñado/a</option>
             <option value="suegro-a">Suegro/a</option>
             <option value="amigo-a">Amigo/a</option>

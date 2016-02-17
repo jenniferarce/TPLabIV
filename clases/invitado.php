@@ -34,12 +34,12 @@ class invitado
 	 public function ModificarInvitado()
 	 {
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("CALL ModificarInvitado(:dni,:nomyape,:pariente,:nromesa)");
+			$consulta =$objetoAccesoDato->RetornarConsulta("CALL ModificarInvitado(:dni,:nomyape,:pariente,:nromesa,:user)");
 			$consulta->bindValue(':dni',$this->dni, PDO::PARAM_INT);
 			$consulta->bindValue(':nomyape',$this->nomyape, PDO::PARAM_STR);
 			$consulta->bindvalue(':pariente',$this->pariente,PDO::PARAM_STR);
 			$consulta->bindValue(':nromesa',$this->nromesa, PDO::PARAM_STR);
-			//$consulta->bindValue(':idd',$this->idd, PDO::PARAM_INT);
+			$consulta->bindValue(':user',$this->user, PDO::PARAM_STR);
 			return $consulta->execute();
 			return $objetoAccesoDato->RetornarUltimoIdInsertado();
 	 }
@@ -86,5 +86,9 @@ class invitado
 		$buscado=$consulta->fetchObject('invitado');
 		return $buscado;
 	}//validda que no exista */
+
+
+
+
 }
 ?>

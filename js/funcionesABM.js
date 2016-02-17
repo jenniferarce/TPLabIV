@@ -62,9 +62,9 @@ function GuardarInvitado() //VALIDAR EXISTENCIA
 		}
 	});
 	funcionAjax.done(function(retorno){
-		alert("Se guardo el invitado!");
 		Mostrar('mostrarInvitados');
 		$("#informe").html("cantidad de agregados "+ retorno);
+		$("#informe").html("Se guardo el invitado!");
 	});
 	funcionAjax.fail(function(retorno){	
 		$("#informe").html(retorno.responseText);	

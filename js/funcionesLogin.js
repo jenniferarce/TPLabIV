@@ -2,13 +2,13 @@ function validarLogin()
 {
 		var varUsuario=$("#usuario").val();
 		var varClave=$("#clave").val();
-		//var recordar=$("#recordarme").is(':checked');
+		var recordar=$("#recordarme").is(':checked');
 
 	var funcionAjax=$.ajax({
 		url:"php/validarUsuario.php",
 		type:"post",
 		data:{
-			//recordarme:recordar,
+			recordarme:recordar,
 			usuario:varUsuario,
 			clave:varClave}
 		});

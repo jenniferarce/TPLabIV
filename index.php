@@ -62,15 +62,23 @@
                     <li>
                         <a onclick="Mostrar('mostrarlogin')" href="#"><span class="glyphicon glyphicon-user"></span>Cuenta</a>
                     </li>
+                    <?php 
+                        if(!isset($_SESSION['registrado']) ) {
+                        ?>
                     <li>
                         <a onclick="Mostrar('mostrarregistro')" href="#">Registrarse</a>
-                    </li>
+                    </li> <?php } ?> 
+
+                    <?php 
+                    if(isset($_SESSION['registrado']) ) {
+                        ?>
                     <li>
                         <a onclick="Mostrar('ingresoInvitados')" href="#">Invitados</a>
                     </li>
                     <li>
                         <a onclick="Mostrar('mostrarInvitados')" href="#"><span class="glyphicon glyphicon-heart"></span>Listado</a>
                     </li>
+                    <?php } ?> 
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

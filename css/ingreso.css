@@ -39,3 +39,6 @@
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+: .fotoform {
+   27    max-width: 200px;
+   28    max-height: 200px;

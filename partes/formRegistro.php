@@ -5,6 +5,7 @@
 <?php 
  
 session_start();
+
 if(!isset($_SESSION['registrado'])){  ?>
     <div id="formRegistro" class="container" align="center"> <!-- "col-sm-4" -->
             <!-- REVISAR -->
@@ -26,10 +27,13 @@ if(!isset($_SESSION['registrado'])){  ?>
               <input readonly   type="hidden"    id="id" class="form-control">
         
               <!-- VER CARGA DE FOTO -->
-              <!--
-            <input type="file" name="foto" id="foto" OPTIONAL>
-            <img  class="fotoform" id="foto">
-            <p style="  color: black;" > *La foto se actualiza al guardar.</p>   -->
+              <br>
+            <input type="file" name="foto" id="foto" class="form-control" OPTIONAL>
+            <!--<img  class="fotoform" id="foto"> -->
+             <img  src="fotos/<?php echo isset($cliente) ? $cliente->GetFoto() : "pordefecto.png" ; ?>" class="fotoform" id="foto"/>
+
+            <p style="  color: black;" > *La foto se actualiza al guardar.</p> 
+
               <BR>
           <button class="btn btn-lg btn-success btn-block" type="submit"><span class="glyphicon glyphicon-asterisk"></span>Registrarme</button>
       </form>

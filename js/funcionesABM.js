@@ -9,6 +9,13 @@ function GuardarCliente()
 		var provincia=$("#provincia").val();
 		var direccion=$("#direccion").val();
 		var localidad=$("#localidad").val();
+		//VER
+		var foto = $('img').attr('src');
+				foto = foto.split('/');
+
+				var file = $("#foto")[0].files[0];
+								
+				var img = (file != undefined)? file.name: foto[1];
 		
 		var funcionAjax=$.ajax({
 		url:"nexo.php",
@@ -23,7 +30,8 @@ function GuardarCliente()
 			email:email,
 			provincia:provincia,
 			direccion:direccion,
-			localidad:localidad
+			localidad:localidad,
+			foto: ($("#foto")[0].files[0] != undefined) ? $("#foto")[0].files[0].name : foto[1]
 		}
 
 	});

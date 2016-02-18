@@ -10,11 +10,12 @@ class cliente
 	public $provincia;
 	public $direccion;
 	public $localidad; 
+	public $foto;//agregar a funciones
 
 	 public function InsertarCliente()
 	 {
 				$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-				$consulta =$objetoAccesoDato->RetornarConsulta("CALL InsertarCliente(:usuario,:clave,:nombre,:telefono,:email,:provincia,:direccion,:localidad)");
+				$consulta =$objetoAccesoDato->RetornarConsulta("CALL InsertarCliente(:usuario,:clave,:nombre,:telefono,:email,:provincia,:direccion,:localidad,:foto)");
 				$consulta->bindvalue(':usuario',$this->usuario,PDO::PARAM_STR);
 				$consulta->bindValue(':clave',$this->clave, PDO::PARAM_STR);
 				$consulta->bindValue(':nombre',$this->nombre, PDO::PARAM_STR);
@@ -23,6 +24,7 @@ class cliente
 				$consulta->bindValue(':provincia',$this->provincia, PDO::PARAM_STR);
 				$consulta->bindValue(':direccion',$this->direccion, PDO::PARAM_STR);
 				$consulta->bindValue(':localidad',$this->localidad, PDO::PARAM_STR);
+				$consulta->bindValue(':foto',$this->foto, PDO::PARAM_STR);
 
 				$consulta->execute();		
 				return $objetoAccesoDato->RetornarUltimoIdInsertado();
@@ -112,6 +114,12 @@ class cliente
 		$buscado=$consulta->fetchObject('cliente');
 		return $buscado;
 	}
+
+	public function GetFoto()
+	{
+		return $this->foto;
+	}
+
 
 }
 ?>

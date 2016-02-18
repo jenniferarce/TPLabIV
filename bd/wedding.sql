@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-02-2016 a las 02:21:35
+-- Tiempo de generación: 18-02-2016 a las 20:44:51
 -- Versión del servidor: 5.6.25
 -- Versión de PHP: 5.6.11
 
@@ -44,6 +44,14 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `retornoID`(IN `usu` VARCHAR(50))
     NO SQL
 select id from cliente where usuario=usu$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `traerdir`(IN `usu` VARCHAR(50))
+    NO SQL
+select direccion from cliente where usuario=usu$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `TraerEstadisticas`(IN `usu` VARCHAR(50))
+    NO SQL
+select count(nromesa) as invitadosenmesa from invitado where user=usu group by nromesa desc$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `TraerInvitados`(IN `usu` VARCHAR(50))
     NO SQL
 select dni,nomyape,pariente,nromesa from invitado where user=usu$$
@@ -51,6 +59,14 @@ select dni,nomyape,pariente,nromesa from invitado where user=usu$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `TraerInvitadosDNI`(IN `ddn` INT(10))
     NO SQL
 SELECT dni, nomyape, pariente, nromesa from invitado where dni=ddn$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `traerloc`(IN `usu` VARCHAR(50))
+    NO SQL
+select localidad from cliente where usuario=usu$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `traerprov`(IN `usu` VARCHAR(50))
+    NO SQL
+select provincia from cliente where usuario=usu$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `validarCliente`(IN `usu` VARCHAR(50), IN `clav` VARCHAR(50))
     NO SQL
@@ -78,8 +94,8 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `provincia` varchar(50) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `direccion` varchar(50) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `localidad` varchar(50) COLLATE utf8_spanish2_ci DEFAULT NULL,
-  `foto` varchar(50) COLLATE utf8_spanish2_ci DEFAULT NULL COMMENT 'foto del usuario'
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+  `foto` varchar(255) COLLATE utf8_spanish2_ci DEFAULT NULL COMMENT 'foto del usuario'
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
 -- Volcado de datos para la tabla `cliente`
@@ -93,7 +109,10 @@ INSERT INTO `cliente` (`id`, `usuario`, `clave`, `nombre`, `telefono`, `email`, 
 (5, 'pepita12', 'lala12', 'pepita pink', 45612389, 'pep@p.com', 'Buenos Aires', 'Avenida Paseo colon 645', 'Capital Federal', NULL),
 (6, 'mia_lu', 'c632a6e0a5238669aa0a4cc8ce56944e', 'mia mlq', 34560765, 'mm@m.com', 'Buenos Aires', 'Avenida Santa Fe 3002', 'Capital Federal', NULL),
 (7, 'lilo', '81dc9bdb52d04dc20036dbd8313ed055', 'lilo y s', 78912356, 'lilo@l.com', 'null', '', '', NULL),
-(9, 'jj', '81dc9bdb52d04dc20036dbd8313ed055', 'JJ', 12345678, 'killingsicname@gmail.com', 'Buenos Aires', 'Avenida Bartolome Mitre 3800', 'Sarandi', NULL);
+(9, 'jj', '81dc9bdb52d04dc20036dbd8313ed055', 'JJ', 12345678, 'killingsicname@gmail.com', 'Buenos Aires', 'Avenida Bartolome Mitre 3800', 'Sarandi', NULL),
+(16, 'abbe', '202cb962ac59075b964b07152d234b70', 'a', 45629631, 'abb@c.com', 'null', '', '', NULL),
+(18, 'ab', '202cb962ac59075b964b07152d234b70', 'a', 12345678, 'a@ab.com', 'null', '', '', '559443_236111653212191_712934173_n.jpg'),
+(19, 'abby', '202cb962ac59075b964b07152d234b70', 'Abby B', 12345896, 'abb@abbe.com', 'Buenos Aires', 'Avenida Hipolito Yrigoyen 1700', 'Avellaneda', 'fotos/abby.jpg');
 
 -- --------------------------------------------------------
 
@@ -114,6 +133,7 @@ CREATE TABLE IF NOT EXISTS `invitado` (
 --
 
 INSERT INTO `invitado` (`user`, `dni`, `nomyape`, `pariente`, `nromesa`) VALUES
+('abby', 40950053, 'Rosita', 'hermano-a', 'm2'),
 ('jj', 30000151, 'leia', 'cuniado-a', 'm2'),
 ('mia_lu', 1000005, 'hh', 'hermano-a', 'm2'),
 ('mia_lu', 1000027, 'ui', 'suegro-a', 'm2'),
@@ -147,7 +167,7 @@ ALTER TABLE `invitado`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

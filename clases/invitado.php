@@ -56,7 +56,7 @@ class invitado
 
 	 }
 	
-	public static function TraerInvitados($user) //VER
+	public static function TraerInvitados($user) 
 	{
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 			$consulta =$objetoAccesoDato->RetornarConsulta("CALL TraerInvitados(:user)");
@@ -76,10 +76,11 @@ class invitado
 
 	}
 	
-	public static function TraerEstadisticas()
+	public static function TraerEstadisticas($user)
 	{
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-		$consulta =$objetoAccesoDato->RetornarConsulta("select count(nromesa) as invitados, nomyape as nombre from invitado group by nomyape order by invitados");
+		$consulta =$objetoAccesoDato->RetornarConsulta("CALL TraerEstadisticas(:user)");
+		$consulta->bindvalue(':user',$user,PDO::PARAM_STR);
 		$consulta->execute();			
 		return $consulta->fetchAll();		
 	}

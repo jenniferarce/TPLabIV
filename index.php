@@ -28,6 +28,12 @@
 <!--
     <script src="components/jquery/dist/jquery.min.js"></script> -->
 
+    <!-- jQuery -->
+    <script src="components/bootstrap-css/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="components/bootstrap-css/js/bootstrap.min.js"></script>
+    
     <script type="text/javascript" src="http://maps.google.com/maps/api/js"></script> <!-- para google maps-->
 
     <script type="text/javascript" src="js/funciones.js"></script>
@@ -38,6 +44,8 @@
     <script type="text/javascript" src="js/moduloGeolocalizacion.js"></script>
 
     <!-- Para estadisticas 05/11/2015-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/data.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -174,11 +182,6 @@
 
 
 
-    <!-- jQuery -->
-    <script src="components/bootstrap-css/js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="components/bootstrap-css/js/bootstrap.min.js"></script>
 
 </body>
 

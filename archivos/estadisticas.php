@@ -4,7 +4,7 @@ if(isset($_SESSION['registrado']))
 {
 	require_once("clases/AccesoDatos.php");
 	require_once("clases/invitado.php");
-	$estadisticas=invitado::TraerEstadisticas();
+	$estadisticas=invitado::TraerEstadisticas($_SESSION['registrado']);
 	echo "<h2> Bienvenido: ". $_SESSION['registrado']."</h2>";
 
  ?>
@@ -15,7 +15,7 @@ if(isset($_SESSION['registrado']))
 <table class="table" id="tablaEstadistica" style=" background-color: beige;display:none;">
 	<thead>
 		<tr>
-			<th>Nombre</th><th>Mesa</th>
+			<th>Mesas</th><th>Invitados en mesas</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -24,8 +24,8 @@ if(isset($_SESSION['registrado']))
 
 foreach ($estadisticas as $row) {
 	echo"<tr>
-			<td>".$row["nombre"]."</td>
-			<td>".$row["invitados"]."</td>
+			<td></td>
+			<td>".$row["invitadosenmesa"]."</td>
 		</tr>   ";
 }
 		 ?>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-02-2016 a las 04:53:07
+-- Tiempo de generación: 18-02-2016 a las 02:21:35
 -- Versión del servidor: 5.6.25
 -- Versión de PHP: 5.6.11
 
@@ -28,17 +28,17 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `BorrarInvitado`(IN `ddn` INT(20))
     NO SQL
 delete from invitado where dni=ddn$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertarCliente`(IN `usu` VARCHAR(50), IN `clav` VARCHAR(50), IN `nom` VARCHAR(50), IN `tel` INT(20), IN `emm` VARCHAR(50), IN `prov` VARCHAR(50), IN `dir` VARCHAR(50), IN `loc` VARCHAR(50))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertarCliente`(IN `usu` VARCHAR(50), IN `clav` VARCHAR(50), IN `nom` VARCHAR(50), IN `tel` INT(20), IN `emm` VARCHAR(50), IN `prov` VARCHAR(50), IN `dir` VARCHAR(50), IN `loc` VARCHAR(50), IN `fot` VARCHAR(50))
     NO SQL
-insert into cliente(usuario,clave,nombre,telefono,email,provincia,direccion,localidad) values(usu,clav,nom,tel,emm,prov,dir,loc)$$
+insert into cliente(usuario,clave,nombre,telefono,email,provincia,direccion,localidad,foto) values(usu,clav,nom,tel,emm,prov,dir,loc,fot)$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertarInvitado`(IN `usu` VARCHAR(50), IN `ddn` INT(10), IN `nomm` VARCHAR(50), IN `parr` VARCHAR(50), IN `nm` VARCHAR(5))
     NO SQL
 insert into invitado(user,dni,nomyape,pariente,nromesa) values(usu,ddn,nomm,parr,nm)$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `ModificarInvitado`(IN `ddn` INT(10), IN `nya` VARCHAR(50), IN `paa` VARCHAR(50), IN `nrme` VARCHAR(20))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ModificarInvitado`(IN `ddn` INT(10), IN `nya` VARCHAR(50), IN `paa` VARCHAR(50), IN `nrme` VARCHAR(20), IN `ussr` VARCHAR(50))
     NO SQL
-UPDATE invitado set nomyape=nya, pariente=paa, nromesa=nrme WHERE dni=ddn$$
+UPDATE invitado set nomyape=nya, pariente=paa, nromesa=nrme WHERE user=ussr and dni=ddn and COUNT(nromesa)<10$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `retornoID`(IN `usu` VARCHAR(50))
     NO SQL
@@ -77,22 +77,23 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `email` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
   `provincia` varchar(50) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `direccion` varchar(50) COLLATE utf8_spanish2_ci DEFAULT NULL,
-  `localidad` varchar(50) COLLATE utf8_spanish2_ci DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+  `localidad` varchar(50) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `foto` varchar(50) COLLATE utf8_spanish2_ci DEFAULT NULL COMMENT 'foto del usuario'
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
 -- Volcado de datos para la tabla `cliente`
 --
 
-INSERT INTO `cliente` (`id`, `usuario`, `clave`, `nombre`, `telefono`, `email`, `provincia`, `direccion`, `localidad`) VALUES
-(1, 'jenn', '1234', 'jja', 12345678, 'j@j.com', NULL, NULL, NULL),
-(2, 'lala', '12', 'lala', 123456, 'l@l.com', 'Buenos Aires', 'Alsina 600', 'Avellaneda'),
-(3, 'p123', '345', 'pepe p', 74125896, 'pepe@pee.com', 'Buenos Aires', 'Andres Baranda 200', 'Quilmes'),
-(4, 'aa', 'aa1234', 'ameba b', 4567321, 'am@laala.com', 'Buenos Aires', 'Juncal 2020', 'Capital Federal'),
-(5, 'pepita12', 'lala12', 'pepita pink', 45612389, 'pep@p.com', 'Buenos Aires', 'Avenida Paseo colon 645', 'Capital Federal'),
-(6, 'mia_lu', 'c632a6e0a5238669aa0a4cc8ce56944e', 'mia mlq', 34560765, 'mm@m.com', 'Buenos Aires', 'Avenida Santa Fe 3002', 'Capital Federal'),
-(7, 'lilo', '81dc9bdb52d04dc20036dbd8313ed055', 'lilo y s', 78912356, 'lilo@l.com', 'null', '', ''),
-(9, 'jj', '81dc9bdb52d04dc20036dbd8313ed055', 'JJ', 12345678, 'killingsicname@gmail.com', 'Buenos Aires', 'Avenida Bartolome Mitre 3800', 'Sarandi');
+INSERT INTO `cliente` (`id`, `usuario`, `clave`, `nombre`, `telefono`, `email`, `provincia`, `direccion`, `localidad`, `foto`) VALUES
+(1, 'jenn', '1234', 'jja', 12345678, 'j@j.com', NULL, NULL, NULL, NULL),
+(2, 'lala', '12', 'lala', 123456, 'l@l.com', 'Buenos Aires', 'Alsina 600', 'Avellaneda', NULL),
+(3, 'p123', '345', 'pepe p', 74125896, 'pepe@pee.com', 'Buenos Aires', 'Andres Baranda 200', 'Quilmes', NULL),
+(4, 'aa', 'aa1234', 'ameba b', 4567321, 'am@laala.com', 'Buenos Aires', 'Juncal 2020', 'Capital Federal', NULL),
+(5, 'pepita12', 'lala12', 'pepita pink', 45612389, 'pep@p.com', 'Buenos Aires', 'Avenida Paseo colon 645', 'Capital Federal', NULL),
+(6, 'mia_lu', 'c632a6e0a5238669aa0a4cc8ce56944e', 'mia mlq', 34560765, 'mm@m.com', 'Buenos Aires', 'Avenida Santa Fe 3002', 'Capital Federal', NULL),
+(7, 'lilo', '81dc9bdb52d04dc20036dbd8313ed055', 'lilo y s', 78912356, 'lilo@l.com', 'null', '', '', NULL),
+(9, 'jj', '81dc9bdb52d04dc20036dbd8313ed055', 'JJ', 12345678, 'killingsicname@gmail.com', 'Buenos Aires', 'Avenida Bartolome Mitre 3800', 'Sarandi', NULL);
 
 -- --------------------------------------------------------
 
@@ -114,8 +115,12 @@ CREATE TABLE IF NOT EXISTS `invitado` (
 
 INSERT INTO `invitado` (`user`, `dni`, `nomyape`, `pariente`, `nromesa`) VALUES
 ('jj', 30000151, 'leia', 'cuniado-a', 'm2'),
+('mia_lu', 1000005, 'hh', 'hermano-a', 'm2'),
+('mia_lu', 1000027, 'ui', 'suegro-a', 'm2'),
 ('mia_lu', 1000054, 'pepi', 'tio-a', 'm3'),
-('mia_lu', 1000083, 'pepe pe', 'tio-a', 'm2');
+('mia_lu', 1000083, 'Pepe Pepo', 'tio-a', 'm2'),
+('mia_lu', 10058960, 'ty', 'cuniado-a', 'm2'),
+('mia_lu', 30580087, 'cf', 'primo-a', 'm2');
 
 --
 -- Índices para tablas volcadas
@@ -142,7 +147,7 @@ ALTER TABLE `invitado`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

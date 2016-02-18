@@ -99,7 +99,7 @@ class cliente
 	{
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 		$consulta=$objetoAccesoDato->RetornarConsulta("CALL validarRegistro(:usuario)");
-		$consulta->bindvalue(':usuario',$this->usuario,PDO::PARAM_STR);
+		$consulta->bindvalue(':usuario',$usuario,PDO::PARAM_STR);
 		$consulta->execute();
 		$buscado=$consulta->fetchObject('cliente');
 		return $buscado;

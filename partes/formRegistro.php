@@ -6,12 +6,13 @@
  
 session_start();
 
+
 if(!isset($_SESSION['registrado'])){  ?>
     <div id="formRegistro" class="container" align="center"> <!-- "col-sm-4" -->
             <!-- REVISAR -->
-      <form class="form-ingreso" onsubmit="validarRegistro();return false;" style="background-color:transparent;" method="post"> <!--"validarRegistro();return false;"> -->
+      <form class="form-ingreso" action="partes/guardarRegistro.php" style="background-color:transparent;" method="post" enctype="multipart/form-data"> <!--"validarRegistro();return false;"> -->
           <h3 class="form-ingreso-heading">Ingrese sus datos</h3>
-            <input type="text" id="usuario" name="usuario" class="form-control" placeholder="Usuario" title="Ingrese su nombre de usuario" required autofocus><br>
+            <input type="text" id="usuario" name="usuario" class="form-control" placeholder="Usuario" onblur="blurFunction()" title="Ingrese su nombre de usuario" required autofocus><br>
             <input type="password" id="clave" name="clave" class="form-control" placeholder="Contraseña" title="Ingrese su contraseña" required><br>
             <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre y Apellido" title="Ingrese su nombre y apellido" required><br>
             <input type="email" id="email" name="email" class="form-control" title="Ingrese un correo valido" placeholder="example@example.com" required><br>
@@ -37,6 +38,8 @@ if(!isset($_SESSION['registrado'])){  ?>
               <BR>
           <button class="btn btn-lg btn-success btn-block" type="submit"><span class="glyphicon glyphicon-asterisk"></span>Registrarme</button>
       </form>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script src="js/funcionesRegistro.js"></script>
     </div>
 
   <?php }

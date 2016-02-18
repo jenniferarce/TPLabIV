@@ -19,7 +19,7 @@ require_once("../clases/invitado.php");
 
 	if(!$_FILES['foto']['tmp_name'] == ""){
 		$ruta=getcwd(); //obtiene la ruta donde está parado este archivo PHP
-		$destino=$ruta."/fotos/".$_POST['usuario'].".jpg";
+		$destino=$ruta."fotos/".$_POST['usuario'].".jpg";
 		move_uploaded_file($_FILES['foto']['tmp_name'], $destino);
 		$foto="fotos/".$_POST['usuario'].".jpg";
 		$cliente->foto=$foto;	

@@ -8,8 +8,8 @@ session_start();
 
 
 if(!isset($_SESSION['registrado'])){  ?>
-    <div id="formRegistro" class="container" align="center"> <!-- "col-sm-4" -->
-            <!-- REVISAR -->
+    <div id="formRegistro" class="container" align="center"> 
+
       <form class="form-ingreso" action="partes/guardarRegistro.php" style="background-color:transparent;" method="post" enctype="multipart/form-data"> <!--"validarRegistro();return false;"> -->
           <h3 class="form-ingreso-heading">Ingrese sus datos</h3>
             <input type="text" id="usuario" name="usuario" class="form-control" placeholder="Usuario" onblur="blurFunction()" title="Ingrese su nombre de usuario" required autofocus><br>
@@ -26,13 +26,10 @@ if(!isset($_SESSION['registrado'])){  ?>
                <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Calle y numero" title="Ingrese su direccion" optional><br>
               <input type="text" id="localidad" name="localidad" class="form-control" placeholder="Localidad" title="Ingrese la localidad" optional>
               <input readonly   type="hidden"    id="id" class="form-control">
-        
-              <!-- VER CARGA DE FOTO -->
+
               <br>
             <input type="file" name="foto" id="foto" class="form-control" OPTIONAL>
-            <!--<img  class="fotoform" id="foto"> -->
              <img  src="fotos/<?php echo isset($cliente) ? $cliente->GetFoto() : "pordefecto.png" ; ?>" class="fotoform" id="foto"/>
-
             <p style="  color: black;" > *La foto se actualiza al guardar.</p> 
 
               <BR>

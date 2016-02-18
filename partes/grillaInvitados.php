@@ -7,11 +7,20 @@ if(isset($_SESSION['registrado']))
 	require_once("clases/invitado.php");
 	require_once("clases/cliente.php");
 
-	$arrayDeInvitados=invitado::TraerInvitados($_SESSION['registrado']);//cliente::retornoID($_SESSION['registrado']));
+	$prov;$dir;$loc;
+	$arrayDeInvitados=invitado::TraerInvitados($_SESSION['registrado']);
+	$prov=cliente::traerprov($_SESSION['registrado']);
+	$dir=cliente::traerdir($_SESSION['registrado']);
+	$loc=cliente::traerloc($_SESSION['registrado']);
+
+	$uss=$_SESSION['registrado'];
+	
 	echo "<h2> Bienvenido: ". $_SESSION['registrado']."</h2>";
 	
 	?>
+<br>
 
+	<br>
 <table class="table"  style=" background-color:transparent;" method="post">
 	<thead>
 		<tr>
@@ -34,12 +43,13 @@ foreach ($arrayDeInvitados as $invitado) {
 		</tr>   ";
 	
 		}  
-		
 		 ?>
-	<!--	<br><td><button onclick="archivos/descargaExcel.php" class="btn btn-sucess"><span class='glyphicon glyphicon-download'>&nbsp;</span>Descarga Excel<td> 
-		 <br><td><button onclick="" class="btn btn-info"></td> 
-		 <br><td><button onclick="" class="btn btn-info"></td> -->
-		<a href="archivos/descargaExcel.php" >Descargar Excel</a>
+		
+		 <!-- <img  src="$uss->foto" class="fotoform" id="foto"/> -->
+
+		 <br> <a href="archivos/descargaExcel.php">Descargar Excel</a>
+		 
+		<br><button onclick="VerEnMapa('$prov','$dir','$loc')" class="btn btn-info">Ver en Mapa 
 	</tbody>
 </table>
 

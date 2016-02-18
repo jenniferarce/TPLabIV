@@ -76,17 +76,13 @@ class invitado
 
 	}
 	
-	/*public function validarInvitado($dni) 
-	//validar que no exista el dni y que el numero de mesa no sobrepase las 10 personas!!!
+	public static function TraerEstadisticas()
 	{
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-		$consulta=$objetoAccesoDato->RetornarConsulta("CALL validarInvitado(:dni)");
-		$consulta->bindvalue(':dni',$this->dni,PDO::PARAM_INT);
-		$consulta->execute();
-		$buscado=$consulta->fetchObject('invitado');
-		return $buscado;
-	}//validda que no exista */
-
+		$consulta =$objetoAccesoDato->RetornarConsulta("select count(nromesa) as invitados, nomyape as nombre from invitado group by nomyape order by invitados");
+		$consulta->execute();			
+		return $consulta->fetchAll();		
+	}
 
 
 

@@ -27,6 +27,9 @@ switch ($queHago) {
 	case 'EditarInvitado':
 		include("partes/formModificar.php");
 	break;
+	case 'EditarCliente':
+		include("partes/formModCliente.php");
+	break;
 	case 'GuardarCliente':
 			$cliente = new cliente();
 			$cliente->id=$_POST['id'];
@@ -103,9 +106,7 @@ switch ($queHago) {
 	case 'GuardarInvitado':
 	session_start();
 			$invitado = new invitado();
-			//$invitado->id=$_POST['idd'];
-			$invitado->user=$_SESSION['registrado'];//$_POST['user'];
-			//$invitado->id=cliente::retornoID($_SESSION['registrado']);//$_POST['id'];//de cliente
+			$invitado->user=$_SESSION['registrado'];
 			$invitado->dni=$_POST['dni'];
 			$invitado->nomyape=$_POST['nomyape'];
 			$invitado->pariente=$_POST['pariente'];
@@ -117,9 +118,7 @@ switch ($queHago) {
 	case 'ModificarInvitado':
 	session_start();
 			$invitado = new invitado();
-			//$invitado->id=$_POST['idd'];
-			$invitado->user=$_SESSION['registrado'];//$_POST['user'];
-			//$invitado->id=cliente::retornoID($_SESSION['registrado']);//$_POST['id'];//de cliente
+			$invitado->user=$_SESSION['registrado'];
 			$invitado->dni=$_POST['dni'];
 			$invitado->nomyape=$_POST['nomyape'];
 			$invitado->pariente=$_POST['pariente'];
@@ -128,12 +127,9 @@ switch ($queHago) {
 			$cantidad=$invitado->ModificarInvitado();
 			echo $cantidad;
 	break;
-	/*case 'TraerInvitados':
-			//$invitado = invitado::TraerUninvitado($_POST['id']);	
-			$invitado=invitado::TraerInvitados(cliente::retornoID($_POST['usuario']));	
-			echo json_encode($invitado);
-
-	break;*/
+	case 'MostrarEstadisticas':
+		include("archivos/estadisticas.php");
+	break;
 	case 'TraerInvitadosDNI':
 		$invitado = invitado::TraerInvitadosDNI($_POST['dni']);	 
 		echo json_encode($invitado);

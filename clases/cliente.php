@@ -10,7 +10,7 @@ class cliente
 	public $provincia;
 	public $direccion;
 	public $localidad; 
-	public $foto;//agregar a funciones
+	public $foto;
 
 	 public function InsertarCliente()
 	 {
@@ -29,18 +29,10 @@ class cliente
 				$consulta->execute();		
 				return $objetoAccesoDato->RetornarUltimoIdInsertado();
 	 }
-	/*public function BorrarCliente()
-	 {
-	 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("CALL BorrarCliente(:id)");	
-				$consulta->bindValue(':id',$this->id, PDO::PARAM_INT);		
-				$consulta->execute();
-				return $consulta->rowCount();
-	 } */
-	 public function ModificarCliente()
+	 /*public function ModificarCliente()
 	 {
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("CALL ModificarCliente(:usuario,:clave,:nombre,:telefono,:email,:provincia,:direccion,:localidad,:id)");
+			$consulta =$objetoAccesoDato->RetornarConsulta("CALL ModificarCliente(:usuario,:clave,:nombre,:telefono, :email, :provincia,:direccion,:localidad,foto,:id)");
 			$consulta->bindvalue(':usuario',$this->usuario,PDO::PARAM_STR);
 			$consulta->bindValue(':clave',$this->clave, PDO::PARAM_STR);
 			$consulta->bindValue(':nombre',$this->nombre, PDO::PARAM_STR);
@@ -49,42 +41,25 @@ class cliente
 			$consulta->bindValue(':provincia',$this->provincia, PDO::PARAM_STR);
 			$consulta->bindValue(':direccion',$this->direccion, PDO::PARAM_STR);
 			$consulta->bindValue(':localidad',$this->localidad, PDO::PARAM_STR);
+			$consulta->bindValue(':foto',$this->foto, PDO::PARAM_STR);
 
 			$consulta->bindValue(':id',$this->id, PDO::PARAM_INT);
 			return $consulta->execute();
 			return $objetoAccesoDato->RetornarUltimoIdInsertado();
-	 }
+	 }*/
 
 	public function GuardarCliente()
 	 {
 
-	 	if($this->id>0)
+	 	/*if($this->id>0)
 	 		{
 	 			$this->ModificarCliente();
-	 		}else {
+	 		}else {*/
 	 			$this->InsertarCliente();
-	 		}
+	 		//}
 
 	 }
-	/*
-	public static function TraerClientes()
-	{
-			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("CALL TraerClientes()");
-			$consulta->execute();			
-			return $consulta->fetchAll(PDO::FETCH_CLASS, "cliente");		
-	}
 
-	public static function TraerClienteId($id) 
-	{
-			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("CALL TraerClienteId(:id)");
-			$consulta->bindvalue(':id',$id,PDO::PARAM_INT);
-			$consulta->execute();
-			$buscado= $consulta->fetchObject('cliente');
-			return $buscado;			
-
-	} */
 	public static function validarCliente($usuario,$clave)
 	{
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
@@ -105,21 +80,42 @@ class cliente
 		return $buscado;
 	}
 
-	public static function retornoID($usuario)
+/*public static function TraerCliente($usuario)
 	{
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-		$consulta=$objetoAccesoDato->RetornarConsulta("CALL retornoID(:usuario)");
+		$consulta=$objetoAccesoDato->RetornarConsulta("CALL TraerCliente(:usuario)");
+		$consulta->bindvalue(':usuario',$usuario,PDO::PARAM_STR);
+		$consulta->execute();
+		$buscado=$consulta->fetchObject('cliente');
+		return $buscado;
+	}*/
+
+     public static function traerprov($usuario)
+	{
+		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+		$consulta=$objetoAccesoDato->RetornarConsulta("CALL traerprov(:usuario)");
 		$consulta->bindvalue(':usuario',$usuario,PDO::PARAM_STR);
 		$consulta->execute();
 		$buscado=$consulta->fetchObject('cliente');
 		return $buscado;
 	}
-
-	public function GetFoto()
+		public static function traerdir($usuario)
 	{
-		return $this->foto;
+		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+		$consulta=$objetoAccesoDato->RetornarConsulta("CALL traerdir(:usuario)");
+		$consulta->bindvalue(':usuario',$usuario,PDO::PARAM_STR);
+		$consulta->execute();
+		$buscado=$consulta->fetchObject('cliente');
+		return $buscado;
 	}
-
-
+		public static function traerloc($usuario)
+	{
+		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+		$consulta=$objetoAccesoDato->RetornarConsulta("CALL traerloc(:usuario)");
+		$consulta->bindvalue(':usuario',$usuario,PDO::PARAM_STR);
+		$consulta->execute();
+		$buscado=$consulta->fetchObject('cliente');
+		return $buscado;
+	}
 }
 ?>

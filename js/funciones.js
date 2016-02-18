@@ -13,7 +13,6 @@ function ingresoInvitados()
 	funcionAjax.fail(function(retorno){
 		$("#informe").html(retorno.responseText);	
 	});
-	//deslogear();
 }//fin ingresoInvitados
 function Mostrar(quemostrar)
 {
@@ -33,7 +32,7 @@ function Mostrar(quemostrar)
 
 
 function MostrarBotones()
-{		//alert(queMostrar);
+{	
 	var funcionAjax=$.ajax({
 		url:"nexo.php",
 		type:"post",

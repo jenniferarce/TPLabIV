@@ -9,7 +9,6 @@ function GuardarCliente()
 		var provincia=$("#provincia").val();
 		var direccion=$("#direccion").val();
 		var localidad=$("#localidad").val();
-		//VER
 		var foto = $('img').attr('src');
 				foto = foto.split('/');
 
@@ -46,9 +45,7 @@ function GuardarCliente()
 			alert("Se registro correctamente!!");
 			Mostrar('mostrarlogin');
 		}
-		
-		
-		//$("#informe").html("cantidad de agregados "+ retorno);
+
 		$("#informe").html("Gracias por registrarse!!");
 	});
 	funcionAjax.fail(function(retorno){	
@@ -57,11 +54,9 @@ function GuardarCliente()
 	});	
 }//fin GuardarCliente
 
-function GuardarInvitado() //VALIDAR EXISTENCIA
+function GuardarInvitado()
 {
-		//HACER CAMBIOS!!!
 		var user=$("#user").val();
-		//var id=$("#id").val();//de cliente
 		var dni=$("#dni").val();
 		var nomyape=$("#nomyape").val();
 		var pariente=$("#pariente").val();
@@ -72,7 +67,6 @@ function GuardarInvitado() //VALIDAR EXISTENCIA
 		data:{
 			queHacer:"GuardarInvitado",
 			user:user,
-			//id:id,
 			dni:dni,
 			nomyape:nomyape,
 			pariente:pariente,
@@ -112,8 +106,7 @@ function BorrarInvitado(dniParametro)
 
 function EditarInvitado(dniParametro)
 {
-	//votacion();
-	Mostrar('EditarInvitado');//'ingresoInvitados');
+	Mostrar('EditarInvitado');
 	var funcionAjax=$.ajax({
 		url:"nexo.php",
 		type:"post",
@@ -125,14 +118,12 @@ function EditarInvitado(dniParametro)
 		
 	funcionAjax.done(function(retorno){
 		var invitado =JSON.parse(retorno);
-		//alert(retorno);
-		//$("#usuario").val(invitado.usuario);
 		$("#dni").val(invitado.dni);
 		$("#nomyape").val(invitado.nomyape);
 		$("#pariente").val(invitado.pariente);
 		var nromesa = invitado.nromesa;
 
-										if(nromesa=="m1")//"Mesa-1")
+										if(nromesa=="m1")
 										{
 											$('input[id=nromesa][value="m1"]').attr('checked', true); 
 										}
@@ -161,7 +152,7 @@ function EditarInvitado(dniParametro)
 }//fin EditarInvitado 
 
 
-function ModificarInvitado() //VALIDAR MESA A LA QUE TENGO QUE REUBICAR!
+function ModificarInvitado() 
 {
 		var dni=$("#dni").val();
 		var nomyape=$("#nomyape").val();

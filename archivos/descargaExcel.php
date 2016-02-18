@@ -15,14 +15,14 @@ if(isset($_SESSION['registrado']))
 	$arrayDeInvitados=invitado::TraerInvitados($_SESSION['registrado']);
 
 
-	foreach ($arrayDeInvitados as $invitado) 
+	/*foreach ($arrayDeInvitados as $invitado) 
 		{
 			$assoc = array(
 				array("DNI"=>$invitado->dni, "Nombre"=>$invitado->nomyape, "Parentezco"=>$invitado->pariente, "Mesa"=>$invitado->nromesa)
 						  );
-		}
+		}*/
 
-createExcel("invitados.xls", $assoc);
+createExcel("invitados.xls", $arrayDeInvitados);
 exit;
 
 }

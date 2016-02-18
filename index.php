@@ -26,9 +26,9 @@
 
     <!-- media queries css -->
 <!--
-    <script src="components/jquery/dist/jquery.min.js"></script>
+    <script src="components/jquery/dist/jquery.min.js"></script> -->
 
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js"></script> para google maps-->
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js"></script> <!-- para google maps-->
 
     <script type="text/javascript" src="js/funciones.js"></script>
     <script type="text/javascript" src="js/funcionesABM.js"></script>
@@ -36,6 +36,12 @@
     <script type="text/javascript" src="js/funcionesMapa.js"></script>
     <script type="text/javascript" src="js/geolocalizacionCommon.js"></script>
     <script type="text/javascript" src="js/moduloGeolocalizacion.js"></script>
+
+    <!-- Para estadisticas 05/11/2015-->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
 
 </head>
 
@@ -48,6 +54,7 @@
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -71,6 +78,9 @@
                     <li>
                         <a onclick="Mostrar('mostrarInvitados')" href="#"><span class="glyphicon glyphicon-heart"></span>Listado</a>
                     </li>
+                    <li>
+                        <a onclick="Mostrar('MostrarEstadisticas')" href="#"></span>Estadisticas</a>
+                    </li>
 
                       ?> 
                 </ul>
@@ -87,7 +97,6 @@
             <div class="row">
                 <div class="col-lg-12">
                     <img src="components/images/logo.png" style="width:250px;height:170px;">
-                    <!--<h1 class="tagline">Fiesta de casamiento</h1>-->
                 </div>
             </div>
         </div>

@@ -5,17 +5,6 @@ session_start();
 
 if(isset($_SESSION['registrado'])){?>
 
-<script type="text/javascript">
-
-/*function revisar()
-{
-    if(formInvitado.nromesa )
-}
-*/
-
-</script>
-
-
     <div id="formInvitado" class="container">
       <form name="formInvitado" class="form-ingreso" onsubmit="GuardarInvitado();return false" style="background-color:transparent;" method="post">
         <h2 class="form-ingreso-heading">Datos del invitado</h2>

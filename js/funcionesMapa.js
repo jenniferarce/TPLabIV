@@ -13,7 +13,6 @@ function VerEnMapa(prov, dire, loc)
     funcionAjax.done(function(retorno){
 		$("#principal").html(retorno);
         $("#punto").val(punto);
-        //$("#id").val(id);
 	Geolocalizacion.Marcador.iniciar();
 	Geolocalizacion.Marcador.verMarcador();	
 	});

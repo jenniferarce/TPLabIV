@@ -33,7 +33,6 @@
     <script type="text/javascript" src="js/funciones.js"></script>
     <script type="text/javascript" src="js/funcionesABM.js"></script>
     <script type="text/javascript" src="js/funcionesLogin.js"></script>
- <!--   <script type="text/javascript" src="js/funcionesRegistro.js"></script> -->
     <script type="text/javascript" src="js/funcionesMapa.js"></script>
     <script type="text/javascript" src="js/geolocalizacionCommon.js"></script>
     <script type="text/javascript" src="js/moduloGeolocalizacion.js"></script>
@@ -64,21 +63,14 @@
                     </li>
                     <li>
                         <a onclick="Mostrar('mostrarregistro')" href="#">Registrarse</a>
+                    </li> 
+                        
+                    <li>
+                        <a onclick="Mostrar('ingresoInvitados')" href="#">Invitados</a>
                     </li>
-
-                    <?php //VER!!
-                    session_start();
-                        if(isset($_SESSION['registrado']) ) 
-                        {
-                         echo " 
-                        <li>
-                            <a onclick='Mostrar('ingresoInvitados')' href='#'>Invitados</a>
-                        </li>
-                        <li>
-                            <a onclick='Mostrar('mostrarInvitados')' href='#'><span class='glyphicon glyphicon-heart'></span>Listado</a>
-                        </li>";
-                    
-                     }
+                    <li>
+                        <a onclick="Mostrar('mostrarInvitados')" href="#"><span class="glyphicon glyphicon-heart"></span>Listado</a>
+                    </li>
 
                       ?> 
                 </ul>

@@ -31,13 +31,23 @@ function GuardarCliente()
 			provincia:provincia,
 			direccion:direccion,
 			localidad:localidad,
-			foto: ($("#foto")[0].files[0] != undefined) ? $("#foto")[0].files[0].name : foto[1]
+			foto: img 
 		}
 
 	});
 	funcionAjax.done(function(retorno){
-		alert("Se registro correctamente!!");
-		Mostrar('mostrarlogin');
+		if($retorno=="esta")
+		{
+			alert("El nombre de usuario ya existe.")
+			Mostrar('mostrarregistro');
+		}
+		else
+		{
+			alert("Se registro correctamente!!");
+			Mostrar('mostrarlogin');
+		}
+		
+		
 		//$("#informe").html("cantidad de agregados "+ retorno);
 		$("#informe").html("Gracias por registrarse!!");
 	});

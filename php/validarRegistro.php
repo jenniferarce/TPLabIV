@@ -3,7 +3,7 @@ session_start();
 $usuario=$_POST['usuario'];
 
 $retorno;
-if(!cliente::validarRegistro($_POST['usuario'])
+if(!cliente::validarRegistro($_POST['usuario']))
 {
 	$_SESSION['registrado']=$usuario;
 

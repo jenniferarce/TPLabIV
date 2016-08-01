@@ -1,4 +1,3 @@
-
 <link href="css/ingreso.css" rel="stylesheet">
 
 <?php 
@@ -6,9 +5,9 @@
 session_start();
 if(!isset($_SESSION['registrado']) ) {  ?>
   <div id="formLogin" class="container" align="center">
-    <form class="form-ingreso" onsubmit="validarLogin();return false;" style="background-color:transparent;" method="post">
+    <form class="form-ingreso" onsubmit="validarLogin();return false;" style="background-color:transparent;" method="post" >
         <h3 class="form-ingreso-heading">Ingrese su cuenta</h3>
-        <input type="text" id="usuario" name="usuario" class="form-control" title="Ingrese su nombre de usuario" placeholder="Usuario" value="<?php if(isset($_COOKIE["registro"])){echo $_COOKIE["registro"];}?>" required autofocus>
+        <input type="text" id="usuario" name="usuario" class="form-control" title="Ingrese su nombre de usuario" placeholder="Usuario" value="<?php if(isset($_COOKIE["registro"])){echo $_COOKIE["registro"];}?>"  required autofocus>
         <br> 
         <input type="password" id="clave" name="clave" class="form-control" title="Ingrese su contraseña" placeholder="Clave" required>
            <div class="checkbox">

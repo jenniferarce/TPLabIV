@@ -6,8 +6,9 @@ $usuario=$_POST['usuario'];
 $clave = md5($_POST['clave']);
 $recordar=$_POST['recordarme'];
 
+
 $retorno;
-if(cliente::validarCliente($_POST['usuario'],md5($_POST['clave'])) )
+if(cliente::validarCliente($usuario,$clave))
 {
 	if($recordar=="true")
 	{

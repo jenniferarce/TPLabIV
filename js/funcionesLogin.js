@@ -8,10 +8,11 @@ function validarLogin()
 		url:"php/validarUsuario.php",
 		type:"post",
 		data:{
-			recordarme:recordar,
 			usuario:varUsuario,
-			clave:varClave}
+			clave:varClave,
+			recordarme:recordar}
 		});
+
 	funcionAjax.done(function(retorno){
 		if(retorno=="No-esta"){
 

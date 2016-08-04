@@ -86,6 +86,15 @@ class invitado
 		return $consulta->fetchAll();		
 	}
 
+	public static function buscadorDNI($dni)
+	{
+			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+			$consulta =$objetoAccesoDato->RetornarConsulta("SELECT dni, nomyape, nromesa from invitado where dni=:dni");
+			$consulta->bindvalue(':dni',$dni,PDO::PARAM_INT);
+			$consulta->execute();
+			$buscado= $consulta->fetchObject('invitado');
+			return $buscado;		
+	} //PARA BUSCADOR / PARA SER VISTO POR EL INVITADO
 
 
 }

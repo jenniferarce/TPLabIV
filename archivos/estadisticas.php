@@ -45,6 +45,7 @@ if(isset($_SESSION['registrado']))
 
  		elseif ($tipo=="admin") { ?><!-- ESTADISTICAS CANTIDAD DE INVITADOS POR CLIENTE  -->
 
+
  				<div id="containerCI" style="min-width: 310px; height: 400px; margin: 0 auto">
 				</div>
 
@@ -70,14 +71,7 @@ if(isset($_SESSION['registrado']))
 
 
  		<?php }//IF==ADMIN
-
- ?>
-
-
-
-
-
-<?php 	}//REGISTRADO
+	}//REGISTRADO
 
 else	{
 		echo "<h4 class='widgettitle'>No estas registrado</h4>";

@@ -56,4 +56,7 @@ if(isset($_SESSION['registrado']))
   else{    echo"<h4>Para acceder, ingrese a su cuenta. 
                 Si usted es invitado, puede buscarse por su DNI:</h4>";?> 
 
+            <input type="number" id="dni" name="dni" class="form-control" placeholder="DNI" title="Ingrese DNI sin puntos." min="1000000" max="99999999" required disabled><br>
+            <button  class="btn btn-lg btn-success btn-block" type="submit" disabled><span class="glyphicon glyphicons-search">&nbsp;&nbsp;</span>Buscar</button>
+
   <?php  }  ?>

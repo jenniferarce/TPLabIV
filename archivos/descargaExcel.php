@@ -4,6 +4,7 @@ if(isset($_SESSION['registrado']))
 {
 	require_once("../clases/AccesoDatos.php");
 	require_once("../clases/invitado.php");
+	require_once("../clases/cliente.php");
 	require_once("excel.php"); 
 	require_once("excel-ext.php"); 
 
@@ -15,14 +16,14 @@ if(isset($_SESSION['registrado']))
 	$arrayDeInvitados=invitado::TraerInvitados($_SESSION['registrado']);
 
 
-	/*foreach ($arrayDeInvitados as $invitado) 
+	foreach ($arrayDeInvitados as $invitado) 
 		{
 			$assoc = array(
 				array("DNI"=>$invitado->dni, "Nombre"=>$invitado->nomyape, "Parentezco"=>$invitado->pariente, "Mesa"=>$invitado->nromesa)
 						  );
-		}*/
+		}
 
-createExcel("invitados.xls", $arrayDeInvitados);
+createExcel("invitados.xls", $assoc ); //$arrayDeInvitados);
 exit;
 
 }

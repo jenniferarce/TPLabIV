@@ -92,9 +92,13 @@ class cliente
         return $this->tipo_usuario;
     }*/
    
-   /*public static function TraerClientes()
+   public function TraerClientes() //va a traer a los clientes dependiendo el tipo de usuario
    {
+   		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+		$consulta =$objetoAccesoDato->RetornarConsulta("SELECT foto,usuario, nombre, email, telefono from cliente where tipo_usuario='cliente'");
+		$consulta->execute();			
+		return $consulta->fetchAll(PDO::FETCH_CLASS, "cliente");	
 
-   }*/
+   }
 }
 ?>

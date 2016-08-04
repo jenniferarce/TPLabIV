@@ -56,5 +56,4 @@ if(isset($_SESSION['registrado']))
   else{    echo"<h4>Para acceder, ingrese a su cuenta. 
                 Si usted es invitado, puede buscarse por su DNI:</h4>";?> 
 
-   
   <?php  }  ?>

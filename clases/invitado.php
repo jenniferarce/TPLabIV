@@ -77,6 +77,15 @@ class invitado
 		return $consulta->fetchAll();		
 	}
 
+		public static function EstadisticasClientes()//cantidad de invitados por usuario
+	{
+		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+		$consulta =$objetoAccesoDato->RetornarConsulta("SELECT count(i.dni) as invitadosxcliente, c.id as idC from invitado as i, cliente as c where i.user=c.usuario group by user desc");
+		//$consulta->bindvalue(':user',$user,PDO::PARAM_STR);
+		$consulta->execute();			
+		return $consulta->fetchAll();		
+	}
+
 
 
 }

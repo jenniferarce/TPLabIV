@@ -1,5 +1,4 @@
 <?php 
-//REVISAR
 session_start();
 if(isset($_SESSION['registrado']))
 {
@@ -7,17 +6,15 @@ if(isset($_SESSION['registrado']))
 	require_once("clases/invitado.php");
 	require_once("clases/cliente.php");
 
-	$prov;$dir;$loc;
-	$arrayDeInvitados=invitado::TraerInvitados($_SESSION['registrado']);
-	//$arrayDeClientes=cliente::TraerClientes();
-	/*$prov=cliente::traerprov($_SESSION['registrado']);
-	$dir=cliente::traerdir($_SESSION['registrado']);
-	$loc=cliente::traerloc($_SESSION['registrado']);*/
-
 	$arrayTipo=cliente::traerTipo($_SESSION['registrado']);
     $tipo=$arrayTipo->tipo_usuario;
 
-	//$uss=$_SESSION['registrado'];
+	$prov;$dir;$loc;
+	$arrayDeInvitados=invitado::TraerInvitados($_SESSION['registrado']);
+	$arrayDeClientes=cliente::TraerClientes();
+	/*$prov=cliente::traerprov($_SESSION['registrado']);
+	$dir=cliente::traerdir($_SESSION['registrado']);
+	$loc=cliente::traerloc($_SESSION['registrado']);*/
 	
 	echo "<h2> Bienvenido: ". $_SESSION['registrado']."</h2>";
 	
@@ -49,24 +46,49 @@ if(isset($_SESSION['registrado']))
 		}  
 		 ?>
 		
-		 <!-- <img  src="$uss->foto" class="fotoform" id="foto"/> -->
-
 		 <br> <a href="archivos/descargaExcel.php">Descargar Excel</a>
 		 
-		<br><button onclick="VerEnMapa('$prov','$dir','$loc')" class="btn btn-info">Ver en Mapa 
+		<!-- <br><button onclick="VerEnMapa('$prov','$dir','$loc')" class="btn btn-info">Ver en Mapa  -->
 		</tbody>
 		</table>
-		<?php 	}//IF==CLIENTE
+		<?php 	
+	}//IF==CLIENTE
+			//********************************** ADMIN:
+	elseif ($tipo=="admin") 
+	{ ?>
+			<br>
+			<table class="table"  style=" background-color:transparent;" method="post">
+			<thead>
+				<tr>
+				<th>Foto</th><th>Usuario</th><th>Nombre</th><th>E-mail</th><th>Telefono</th>
+				</tr>
+			</thead>
+			<tbody>
 
-	elseif ($tipo=="admin") { ?>
+			<?php 
+
+			foreach ($arrayDeClientes as $ccliente) {
+				echo"<tr>
+				<td> <img  src='".$ccliente->foto."' width='30' height='30' /></td>
+				<td>$ccliente->usuario</td>
+				<td>$ccliente->nombre</td>
+				<td>$ccliente->email</td>
+				<td>$ccliente->telefono</td>
+				</tr>   ";
 			
+			}  
+		 ?>
+		 	<!--<br> <a href="archivos/descargaExcel.php">Descargar Excel</a> --> 
+		 
+			<!-- <br><button onclick="VerEnMapa('$prov','$dir','$loc')" class="btn btn-info">Ver en Mapa  -->
+			</tbody>
+			</table>
 
 	<?php }//IF==ADMIN
-
 
 }//REGISTRADO
 else	{
 		echo "<h4 class='widgettitle'>Para acceder, ingrese a su cuenta.</h4>";
 }//NO REGISTRADO
 
-	 ?>
+?>

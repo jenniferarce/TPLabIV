@@ -98,6 +98,7 @@ switch ($queHago) {
     				}
   				} 
 
+  			$cliente->tipo_usuario=$_POST['tipo_usuario']; // ver
 
 			
 			$cantidad=$cliente->GuardarCliente();

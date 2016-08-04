@@ -20,6 +20,7 @@ if(cliente::validarCliente($usuario,$clave))
 		
 	}
 	$_SESSION['registrado']=$usuario;
+
 	$retorno="ingreso";
 }else
 {

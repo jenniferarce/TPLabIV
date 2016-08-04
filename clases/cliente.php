@@ -11,16 +11,17 @@ class cliente
 	public $direccion;
 	public $localidad; 
 	public $foto;
+	public $tipo_usuario; //ver agregado en InsertarCliente!
 
 	 public function InsertarCliente()
 	 {
 				$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-				$consulta =$objetoAccesoDato->RetornarConsulta("INSERT into cliente(usuario, clave, nombre, telefono, email, provincia, direccion, localidad, foto) values('$this->usuario', '$this->clave','$this->nombre','$this->telefono','$this->email','$this->provincia', '$this->direccion','$this->localidad','$this->foto')");
+				$consulta =$objetoAccesoDato->RetornarConsulta("INSERT into cliente(usuario, clave, nombre, telefono, email, provincia, direccion, localidad, foto, tipo_usuario) values('$this->usuario', '$this->clave','$this->nombre','$this->telefono','$this->email','$this->provincia', '$this->direccion','$this->localidad','$this->foto', '$this->tipo_usuario')");
 
 				$consulta->execute();		
 				return $objetoAccesoDato->RetornarUltimoIdInsertado();
 	 }
-	 
+
 	public function GuardarCliente()
 	 {
 	 	$this->InsertarCliente();
@@ -76,5 +77,24 @@ class cliente
 		$buscado=$consulta->fetchObject('cliente');
 		return $buscado;
 	}
+	public static function traerTipo($usuario)
+	{
+		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+		$consulta=$objetoAccesoDato->RetornarConsulta("SELECT tipo_usuario from cliente where usuario=:usuario");
+		$consulta->bindvalue(':usuario',$usuario,PDO::PARAM_STR);
+		$consulta->execute();
+		$buscado=$consulta->fetchObject('cliente');
+		return $buscado;
+	}
+
+	/*public function __toString() //PARA CONVERTIR A UN STRING (metodo magico)
+    {
+        return $this->tipo_usuario;
+    }*/
+   
+   /*public static function TraerClientes()
+   {
+
+   }*/
 }
 ?>

@@ -9,39 +9,43 @@ if(isset($_SESSION['registrado']))
 
 	$prov;$dir;$loc;
 	$arrayDeInvitados=invitado::TraerInvitados($_SESSION['registrado']);
-	$prov=cliente::traerprov($_SESSION['registrado']);
+	//$arrayDeClientes=cliente::TraerClientes();
+	/*$prov=cliente::traerprov($_SESSION['registrado']);
 	$dir=cliente::traerdir($_SESSION['registrado']);
-	$loc=cliente::traerloc($_SESSION['registrado']);
+	$loc=cliente::traerloc($_SESSION['registrado']);*/
 
-	$uss=$_SESSION['registrado'];
+	$arrayTipo=cliente::traerTipo($_SESSION['registrado']);
+    $tipo=$arrayTipo->tipo_usuario;
+
+	//$uss=$_SESSION['registrado'];
 	
 	echo "<h2> Bienvenido: ". $_SESSION['registrado']."</h2>";
 	
+	if($tipo=="cliente"){
 	?>
-<br>
 
-	<br>
-<table class="table"  style=" background-color:transparent;" method="post">
-	<thead>
-		<tr>
-			<th>Editar</th><th>Borrar</th><th>DNI</th><th>Nombre</th><th>Parentezco</th><th></th>
-		</tr>
-	</thead>
-	<tbody>
+		<br>
+
+		<table class="table"  style=" background-color:transparent;" method="post">
+			<thead>
+			<tr>
+				<th>Editar</th><th>Borrar</th><th>DNI</th><th>Nombre</th><th>Parentezco</th><th></th>
+			</tr>
+		</thead>
+		<tbody>
 
 		<?php 
 	
-foreach ($arrayDeInvitados as $invitado) {
+			foreach ($arrayDeInvitados as $invitado) {
 
-	echo"<tr>
-			<td><a onclick='EditarInvitado($invitado->dni)' class='btn btn-warning'> <span class='glyphicon glyphicon-pencil'>&nbsp;</span>Editar</a></td>
-			<td><a onclick='BorrarInvitado($invitado->dni)' class='btn btn-danger'><span class='glyphicon glyphicon-trash'>&nbsp;</span>Borrar</a></td>
-			<td>$invitado->dni</td>
-			<td>$invitado->nomyape</td>
-			<td>$invitado->pariente</td>
-			<td>$invitado->nromesa</td>	
-		</tr>   ";
-	
+			echo"<tr>
+				<td><a onclick='EditarInvitado($invitado->dni)' class='btn btn-warning'> <span class='glyphicon glyphicon-pencil'>&nbsp;</span>Editar</a></td>
+				<td><a onclick='BorrarInvitado($invitado->dni)' class='btn btn-danger'><span class='glyphicon glyphicon-trash'>&nbsp;</span>Borrar</a></td>
+				<td>$invitado->dni</td>
+				<td>$invitado->nomyape</td>
+				<td>$invitado->pariente</td>
+				<td>$invitado->nromesa</td>	
+			</tr>   ";
 		}  
 		 ?>
 		
@@ -50,11 +54,19 @@ foreach ($arrayDeInvitados as $invitado) {
 		 <br> <a href="archivos/descargaExcel.php">Descargar Excel</a>
 		 
 		<br><button onclick="VerEnMapa('$prov','$dir','$loc')" class="btn btn-info">Ver en Mapa 
-	</tbody>
-</table>
+		</tbody>
+		</table>
+		<?php 	}//IF==CLIENTE
 
-<?php 	}else	{
+	elseif ($tipo=="admin") { ?>
+			
+
+	<?php }//IF==ADMIN
+
+
+}//REGISTRADO
+else	{
 		echo "<h4 class='widgettitle'>Para acceder, ingrese a su cuenta.</h4>";
-	}
+}//NO REGISTRADO
 
 	 ?>

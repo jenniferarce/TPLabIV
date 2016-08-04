@@ -24,6 +24,7 @@ require_once("../clases/invitado.php");
 		$foto="fotos/".$_POST['usuario'].".jpg";
 		$cliente->foto=$foto;	
 	}
+		$cliente->tipo_usuario=$_POST['tipo_usuario']; //VER
 
 
 	$cliente->GuardarCliente();

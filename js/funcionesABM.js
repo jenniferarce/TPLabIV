@@ -15,6 +15,7 @@ function GuardarCliente()
 				var file = $("#foto")[0].files[0];
 								
 				var img = (file != undefined)? file.name: foto[1];
+		var tipo_usuario=$("input[name='tipo_usuario']:checked").val();
 		
 		var funcionAjax=$.ajax({
 		url:"nexo.php",
@@ -30,7 +31,8 @@ function GuardarCliente()
 			provincia:provincia,
 			direccion:direccion,
 			localidad:localidad,
-			foto: img 
+			foto: img,
+			tipo_usuario:tipo_usuario
 		}
 
 	});
